@@ -5,7 +5,7 @@ ob_start();
 ?>
 <h1>Le fameux livre</h1>
 <?php
-  while ($post=$req->fetch()) {
+  while ($post=$posts->fetch()) {
       $content = $post['content'];
       if (preg_match('/^.{1,250}\b/su', $content, $match)) {
           $except = $match[0];
@@ -19,7 +19,7 @@ ob_start();
             <div class="panel-body">
               <p><?= nl2br($except) ?> ...</p>
               <div class="text-right">
-                <a href="#" class="btn btn-primary">Lire la suite</a>
+                <a href="?action=post&id=<?= $post['id'] ?>" class="btn btn-primary">Lire la suite</a>
               </div>
             </div>
           </div>
@@ -28,7 +28,7 @@ ob_start();
 
     <?php
   }
-$req->closeCursor();
+$posts->closeCursor();
 
 $content = ob_get_clean();
 
