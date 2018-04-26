@@ -1,21 +1,24 @@
 <?php
-require_once(__DIR__.'/../model/frontend.php');
+require(__DIR__.'/../model/frontend.php');
 
 function showHome()
 {
-    require_once(__DIR__.'/../view/frontend/home.php');
+    require(__DIR__.'/../view/frontend/home.php');
 }
 
 function listPosts()
 {
     $posts = getPosts();
 
-    require_once(__DIR__.'/../view/frontend/list_posts.php');
+    require(__DIR__.'/../view/frontend/list_posts.php');
 }
 
 function post($id)
 {
     $post = getPost($id);
-
-    require_once(__DIR__.'/../view/frontend/post.php');
+    if ($post) {
+        require(__DIR__.'/../view/frontend/post.php');
+    } else {
+        throw new \Exception("Aucun billet à ce numéro", 1);
+    }
 }
