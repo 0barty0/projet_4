@@ -1,12 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Administration</title>
-</head>
-<body>
-  Bienvenue boss !
-</body>
-</html>
+<?php
+$title="Admnistration";
+
+ob_start();
+?>
+<h1>Hello boss !</h1>
+<?php
+$content=ob_get_clean();
+
+require('template.php');

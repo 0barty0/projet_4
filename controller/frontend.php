@@ -2,6 +2,29 @@
 // Class loading
 require_once(__DIR__.'/../model/PostManager.php');
 require_once(__DIR__.'/../model/CommentManager.php');
+require_once(__DIR__ .'/../model/MembersManager.php');
+
+function loginForm()
+{
+    require(__DIR__ .'/../view/frontend/login.php');
+}
+
+function login($pseudo, $password)
+{
+    $membersManager = new MembersManager();
+    $admin = $membersManager->getAdmin($pseudo);
+
+    if ($admin) {
+        if (password_verify($password, $admin['password'])) {
+            $_SESSION['pseudo']=$admin['pseudo'];
+            require(__DIR__.'/../view/frontend/home.php');
+        } else {
+            throw new \Exception("Mauvais mot de passe.", 1);
+        }
+    } else {
+        throw new \Exception("Vous n'êtes pas administrateur de ce site.", 1);
+    }
+}
 
 function showHome()
 {
