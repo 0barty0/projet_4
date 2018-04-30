@@ -17,7 +17,7 @@ function login($pseudo, $password)
     if ($admin) {
         if (password_verify($password, $admin['password'])) {
             $_SESSION['pseudo']=$admin['pseudo'];
-            require(__DIR__.'/../view/frontend/home.php');
+            header("location:index.php");
         } else {
             throw new \Exception("Mauvais mot de passe.", 1);
         }

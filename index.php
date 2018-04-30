@@ -37,11 +37,11 @@ try {
             } else {
                 loginForm();
             }
-        } elseif (isset($_SESSION['pseudo'])) {
-            adminAccess();
         } else {
             showHome();
         }
+    } elseif (!empty($_SESSION['pseudo'])) {
+        adminAccess();
     } else {
         showHome();
     }
