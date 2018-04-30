@@ -1,5 +1,6 @@
 <?php
 require('./controller/frontend.php');
+require('./controller/backend.php');
 
 try {
     if (isset($_GET['action'])) {
@@ -25,6 +26,15 @@ try {
                 }
             } else {
                 throw new \Exception("Aucun identifiant de billet envoyé", 1);
+            }
+        } elseif ($action == "admin") {
+            if (isset($_POST['pseudo']) && isset($_POST['password'])) {
+                $pseudo = htmlspecialchars($_POST['pseudo']);
+                $password = htmlspecialchars($_POST['password']);
+
+                adminAccess($pseudo, $password);
+            } else {
+                adminForm();
             }
         } else {
             showHome();
