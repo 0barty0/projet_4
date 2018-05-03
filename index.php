@@ -8,6 +8,8 @@ try {
         if (isset($_GET['action'])) {
             if ($_GET['action'] == 'deconnexion') {
                 disconnect();
+            } elseif ($_GET['action'] == 'createPost') {
+                createPost();
             } else {
                 adminAccess();
             }

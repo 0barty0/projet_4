@@ -11,3 +11,8 @@ function disconnect()
     header('location:index.php');
     exit();
 }
+
+function createPost()
+{
+    require(__DIR__.'/../view/backend/createPost.php');
+}
