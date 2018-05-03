@@ -23,8 +23,9 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="navbar">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="index.php?action=admin">Articles</a></li>
+        <li class="active"><a href="index.php?action=listPosts">Articles</a></li>
         <li><a href="index.php?action=listComment">Commentaires</a></li>
+        <li><a href="index.php?action=deconnexion">Déconnexion</a></li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
