@@ -5,7 +5,7 @@ $title = "Nouvel article";
 ob_start();
 ?>
 <div class="row">
-  <form action="index.php?action=addPost" class="col-md-8 col-md-offset-2 well">
+  <form action="index.php?action=addPost" method="post" class="col-md-8 col-md-offset-2 well">
     <legend>Nouvel article</legend>
     <div class="form-group">
       <input class="form-control" type="text" name="title" id="title" placeholder="Titre">

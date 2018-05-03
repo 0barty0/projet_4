@@ -10,6 +10,12 @@ try {
                 disconnect();
             } elseif ($_GET['action'] == 'createPost') {
                 createPost();
+            } elseif ($_GET['action'] == 'addPost') {
+                if (isset($_POST['title']) && isset($_POST['content'])) {
+                    $title = htmlspecialchars($_POST['title']);
+                    $content = $_POST['content'];
+                    addPost($title, $content);
+                }
             } else {
                 adminAccess();
             }

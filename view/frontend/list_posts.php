@@ -17,7 +17,7 @@ ob_start();
               <h2><?= $post['title'] ?></h2>
             </div>
             <div class="panel-body">
-              <p><?= nl2br($except) ?> ...</p>
+              <?= $except ?>
               <div class="text-right">
                 <a href="?action=post&amp;id=<?= $post['id'] ?>" class="btn btn-primary">Lire la suite</a>
               </div>

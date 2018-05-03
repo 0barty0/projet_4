@@ -11,7 +11,7 @@ ob_start();
       <p><?= $post['creation_date_fr'] ?></p>
     </div>
     <div class="panel-body">
-      <p> <?= nl2br($post['content']) ?></p>
+      <?= $post['content'] ?>
     </div>
   </div>
 </div>
