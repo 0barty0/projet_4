@@ -23,8 +23,10 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="navbar">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="index.php?action=listPosts">Articles</a></li>
-        <li><a href="index.php?action=listComment">Commentaires</a></li>
+        <li><a href="index.php">Accueil</a></li>
+        <li><a href="index.php?action=createPost">Écrire un article</a></li>
+        <li><a href="index.php?action=listPosts">Gestion des articles</a></li>
+        <li><a href="index.php?action=listComment">Modération des commentaires</a></li>
         <li><a href="index.php?action=deconnexion">Déconnexion</a></li>
       </ul>
     </div><!-- /.navbar-collapse -->
