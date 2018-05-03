@@ -4,6 +4,8 @@ $(document).ready(function() {
     $('a[href="index.php"]').parent().addClass('active');
   } else if (action == "?action=listPosts" || action.search(/^\?action=post/g) !== -1) {
     $('a[href="index.php?action=listPosts"]').parent().addClass('active');
+  } else if (action == "?action=login") {
+    $('a[href="index.php?action=login"]').parent().addClass('active');
   } else if (action == "?action=listComment") {
     $('a[href="index.php?action=listComment"]').parent().addClass('active');
   } else if (action == "?action=createPost") {

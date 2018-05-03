@@ -36,6 +36,7 @@
       <ul class="nav navbar-nav">
         <li><a href="index.php">Accueil</a></li>
         <li><a href="index.php?action=listPosts">Liste des chapîtres</a></li>
+        <li><a href="index.php?action=login">Connexion</a></li>
 
       </ul>
       <form class="navbar-form navbar-right" role="search">
