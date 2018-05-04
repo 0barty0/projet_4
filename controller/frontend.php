@@ -37,7 +37,7 @@ function listPosts()
     $postManager = new PostManager();
     $posts = $postManager->getPosts();
 
-    require(__DIR__.'/../view/frontend/list_posts.php');
+    require(__DIR__.'/../view/frontend/listPosts.php');
 }
 
 function post($id)

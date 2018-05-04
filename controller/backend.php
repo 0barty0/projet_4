@@ -42,7 +42,7 @@ function adminListPosts()
     $postManager = new PostManager();
     $posts = $postManager->getPosts();
 
-    require(__DIR__. '/../view/backend/list_posts.php');
+    require(__DIR__. '/../view/backend/listPosts.php');
 }
 
 function modify($id)
