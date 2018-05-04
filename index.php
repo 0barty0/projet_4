@@ -12,9 +12,16 @@ try {
                 createPost();
             } elseif ($_GET['action'] == 'addPost') {
                 if (isset($_POST['title']) && isset($_POST['content'])) {
-                    $title = htmlspecialchars($_POST['title']);
-                    $content = $_POST['content'];
-                    addPost($title, $content);
+                    if (!empty($_POST['title']) && !empty($_POST['content'])) {
+                        $newTitle = htmlspecialchars($_POST['title']);
+                        $newContent = $_POST['content'];
+                        addPost($newTitle, $newContent);
+                    } else {
+                        $_SESSION['articleTitle'] = $_POST['title'];
+                        $_SESSION['articleContent'] = $_POST['content'];
+                        
+                        throw new \Exception("Tous les champs ne sont pas remplis", 1);
+                    }
                 }
             } else {
                 adminAccess();
@@ -65,5 +72,9 @@ try {
     }
 } catch (\Exception $e) {
     $errorMessage = $e->getMessage();
-    require('view/frontend/errorView.php');
+    if (isset($_SESSION['authenticated']) && $_SESSION['authenticated']) {
+        require('view/backend/errorView.php');
+    } else {
+        require('view/frontend/errorView.php');
+    }
 }

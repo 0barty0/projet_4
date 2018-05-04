@@ -32,6 +32,6 @@ class PostManager extends Manager
         $req->bindValue(':title', $title);
         $req->bindValue(':content', $content);
 
-        $req->execute();
+        return $req->execute();
     }
 }

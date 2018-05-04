@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" media="screen" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.min.css">
+  <script src="public/js/tinymce/tinymce.min.js"></script>
+  <script src="public/js/tinymce/jquery.tinymce.min.js"></script>
   <title><?= $title ?></title>
 </head>
 <body>
