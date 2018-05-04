@@ -42,4 +42,23 @@ class PostManager extends Manager
 
         return $affectedLines;
     }
+
+    public function exists($id)
+    {
+        $db = $this->dbConnect();
+        $req = $db->query('SELECT COUNT(*) FROM posts WHERE id='. $id);
+        return (bool) $req->fetchColumn();
+    }
+
+    public function updatePost($id, $title, $content)
+    {
+        $db = $this->dbConnect();
+        $req = $db->prepare('UPDATE posts SET title = :title, content = :content WHERE id = :id');
+        $req->bindValue(':title', $title);
+        $req->bindValue(':content', $content);
+        $req->bindValue(':id', $id);
+        $affectedLines = $req->execute();
+
+        return $affectedLines;
+    }
 }

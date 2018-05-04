@@ -31,8 +31,44 @@ function addPost($newTitle, $newContent)
         header('location:index.php');
         exit();
     } else {
-        $_SESSION['articleTitle'] = $_POST['title'];
-        $_SESSION['articleContent'] = $_POST['content'];
+        $_SESSION['articleTitle'] = $newTitle;
+        $_SESSION['articleContent'] = $newContent;
         throw new \Exception("L'article n'a pas pu être publié.", 1);
+    }
+}
+
+function adminListPosts()
+{
+    $postManager = new PostManager();
+    $posts = $postManager->getPosts();
+
+    require(__DIR__. '/../view/backend/list_posts.php');
+}
+
+function modify($id)
+{
+    $postManager = new PostManager();
+
+    $post = $postManager->getPost($id);
+
+    require(__DIR__ . '/../view/backend/modifyPost.php');
+}
+
+function update($id, $newTitle, $newContent)
+{
+    $postManager = new PostManager();
+    if ($postManager->exists($id)) {
+        $result = $postManager->updatePost($id, $newTitle, $newContent);
+        if ($result !== 0) {
+            $_SESSION['message'] = "L'article a bien été modifié !";
+            header('location:index.php');
+            exit();
+        } else {
+            $_SESSION['articleTitle'] = $newTitle;
+            $_SESSION['articleContent'] = $newContent;
+            throw new \Exception("L'article n'a pas pu être publié.", 1);
+        }
+    } else {
+        throw new \Exception("Aucun article avec cet identifiant", 1);
     }
 }

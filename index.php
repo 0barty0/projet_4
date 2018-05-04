@@ -19,9 +19,40 @@ try {
                     } else {
                         $_SESSION['articleTitle'] = $_POST['title'];
                         $_SESSION['articleContent'] = $_POST['content'];
-                        
+
                         throw new \Exception("Tous les champs ne sont pas remplis", 1);
                     }
+                } else {
+                    throw new \Exception("Erreur lors du traitement.", 1);
+                }
+            } elseif ($_GET['action'] == 'listPosts') {
+                adminListPosts();
+            } elseif ($_GET['action'] == 'modify') {
+                if (isset($_GET['id']) && !empty($_GET['id'])) {
+                    modify($_GET['id']);
+                } else {
+                    throw new \Exception("Aucun identifiant de billet envoyé.", 1);
+                }
+            } elseif ($_GET['action'] == 'update') {
+                if (isset($_GET['id'])) {
+                    if (isset($_POST['title']) && isset($_POST['content'])) {
+                        if (!empty($_POST['title']) && !empty($_POST['content'])) {
+                            $id = $_GET['id'];
+                            $newTitle = htmlspecialchars($_POST['title']);
+                            $newContent = $_POST['content'];
+
+                            update($id, $newTitle, $newContent);
+                        } else {
+                            $_SESSION['articleTitle'] = $_POST['title'];
+                            $_SESSION['articleContent'] = $_POST['content'];
+
+                            throw new \Exception("Tous les champs ne sont pas remplis", 1);
+                        }
+                    } else {
+                        throw new \Exception("Erreur lors du traitement.", 1);
+                    }
+                } else {
+                    throw new \Exception("Aucun identifiant de billet envoyé.", 1);
                 }
             } else {
                 adminAccess();
