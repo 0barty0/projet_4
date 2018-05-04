@@ -20,15 +20,15 @@ ob_start();
   <div class="panel-group col-md-4 col-md-offset-2">
       <h2>Commentaires</h2>
       <?php
-        while ($comment = $comments->fetch()) {
+        foreach ($comments as $comment) {
             ?>
             <div class="panel panel-info">
               <div class="panel-heading">
-                <h3><?= $comment['author'] ?></h3>
-                <p><?= $comment['comment_date_fr'] ?></p>
+                <h3><?= $comment->author() ?></h3>
+                <p><?= $comment->comment_date() ?></p>
               </div>
               <div class="panel-body">
-                <p><?= nl2br($comment['comment']) ?></p>
+                <p><?= nl2br($comment->comment()) ?></p>
               </div>
             </div>
           <?php

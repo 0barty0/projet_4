@@ -1,14 +1,20 @@
 <?php
 require_once('Manager.php');
+require_once('Comment.php');
 
 class CommentManager extends Manager
 {
     public function getComments($idPost)
     {
         $db = $this->dbConnect();
+        $comments = [];
 
-        $comments = $db->prepare('SELECT id, post_id, author, comment, DATE_FORMAT(comment_date, "%d/%m/%Y à %Hh%imin%ss") AS comment_date_fr FROM comments WHERE post_id=?');
-        $comments->execute(array($idPost));
+        $req = $db->prepare('SELECT id, post_id, author, comment, DATE_FORMAT(comment_date, "%d/%m/%Y à %Hh%imin%ss") AS comment_date_fr FROM comments WHERE post_id=?');
+        $req->execute(array($idPost));
+
+        while ($data = $req->fetch(PDO::FETCH_ASSOC)) {
+            $comments[] = new Comment($data);
+        }
 
         return $comments;
     }
