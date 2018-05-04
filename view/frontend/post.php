@@ -1,5 +1,5 @@
 <?php
-$title = $post['title'];
+$title = $post->title();
 
 ob_start();
 ?>
@@ -7,11 +7,11 @@ ob_start();
 <div class="row">
   <div class="panel panel-primary col-md-8 col-md-offset-2">
     <div class="panel-heading">
-      <h1><?= $post['title'] ?></h1>
-      <p><?= $post['creation_date_fr'] ?></p>
+      <h1><?= $post->title() ?></h1>
+      <p><?= $post->creation_date() ?></p>
     </div>
     <div class="panel-body">
-      <?= $post['content'] ?>
+      <?= $post->content() ?>
     </div>
   </div>
 </div>
@@ -38,7 +38,7 @@ ob_start();
 </div>
 
 <div class="row">
-  <form action="index.php?action=addComment&amp;id=<?= $post['id'] ?>" method="post" class="col-md-4 col-md-offset-2 well form-horizontal">
+  <form action="index.php?action=addComment&amp;id=<?= $post->id() ?>" method="post" class="col-md-4 col-md-offset-2 well form-horizontal">
     <legend>
       <h2>Ajouter un commentaire</h2>
     </legend>
