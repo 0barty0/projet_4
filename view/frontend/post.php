@@ -25,7 +25,7 @@ ob_start();
             <div class="panel panel-info">
               <div class="panel-heading">
                 <h3><?= $comment->author() ?></h3>
-                <p><?= $comment->comment_date() ?></p>
+                <p><?= $comment->comment_date_fr() ?></p>
               </div>
               <div class="panel-body">
                 <p><?= nl2br($comment->comment()) ?></p>

@@ -7,6 +7,7 @@ class Comment
     private $_author;
     private $_comment;
     private $_comment_date;
+    private $_comment_date_fr;
 
     public function __construct(array $data)
     {
@@ -46,6 +47,10 @@ class Comment
     {
         return $this->_comment_date;
     }
+    public function comment_date_fr()
+    {
+        return $this->_comment_date_fr;
+    }
 
     // Setters
 
@@ -74,5 +79,10 @@ class Comment
     public function setComment_date($comment_date)
     {
         $this->_comment_date = $comment_date;
+    }
+
+    public function setComment_date_fr($comment_date_fr)
+    {
+        $this->_comment_date_fr = $comment_date_fr;
     }
 }

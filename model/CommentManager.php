@@ -9,7 +9,7 @@ class CommentManager extends Manager
         $db = $this->dbConnect();
         $comments = [];
 
-        $req = $db->prepare('SELECT id, post_id, author, comment, DATE_FORMAT(comment_date, "%d/%m/%Y à %Hh%imin%ss") AS comment_date_fr FROM comments WHERE post_id=?');
+        $req = $db->prepare('SELECT id, post_id, author, comment, comment_date, DATE_FORMAT(comment_date, "%d/%m/%Y à %Hh%imin%ss") AS comment_date_fr FROM comments WHERE post_id=?');
         $req->execute(array($idPost));
 
         while ($data = $req->fetch(PDO::FETCH_ASSOC)) {
