@@ -19,7 +19,7 @@ if (isset($_SESSION['articleContent'])) {
 ob_start();
 ?>
 <div class="row">
-  <form action="index.php?action=update&id=<?= $post->id() ?>" method="post" class="col-md-8 col-md-offset-2 well">
+  <form action="index.php?action=update&amp;id=<?= $post->id() ?>" method="post" class="col-md-8 col-md-offset-2 well">
     <legend>Modification d'article</legend>
     <div class="form-group">
       <input class="form-control" type="text" name="title" id="title" placeholder="Titre" value="<?= $articleTitle ?>">

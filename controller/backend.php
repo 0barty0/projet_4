@@ -72,3 +72,20 @@ function update($id, $newTitle, $newContent)
         throw new \Exception("Aucun article avec cet identifiant", 1);
     }
 }
+
+function deletePost($id)
+{
+    $postManager=new PostManager();
+    if ($postManager->exists($id)) {
+        $result = $postManager->deletePost($id);
+        if ($result !== 0) {
+            $_SESSION['message'] = "L'article a bien été supprimé !";
+            header('location:index.php');
+            exit();
+        } else {
+            throw new \Exception("L'article n'a pas pu être supprimé.", 1);
+        }
+    } else {
+        throw new \Exception("Aucun article avec cet identifiant", 1);
+    }
+}

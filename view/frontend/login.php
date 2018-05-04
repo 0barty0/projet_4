@@ -14,7 +14,7 @@ ob_start();
         <label for="password">Mot de passe :</label>
         <input type="password" name="password" id="password" class="form-control">
       </div>
-      <button type="submit" class="btn btn-primary">Connection</button>
+      <button type="submit" class="btn btn-primary">Connexion</button>
     </form>
   </div>
 <?php

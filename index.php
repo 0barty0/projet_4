@@ -54,6 +54,12 @@ try {
                 } else {
                     throw new \Exception("Aucun identifiant de billet envoyé.", 1);
                 }
+            } elseif ($_GET['action'] == 'delete') {
+                if (isset($_GET['id'])) {
+                    deletePost($_GET['id']);
+                } else {
+                    throw new \Exception("Aucun identifiant de billet envoyé.", 1);
+                }
             } else {
                 adminAccess();
             }

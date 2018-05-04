@@ -61,4 +61,12 @@ class PostManager extends Manager
 
         return $affectedLines;
     }
+
+    public function deletePost($id)
+    {
+        $db = $this->dbConnect();
+        $affectedLines = $db->exec('DELETE FROM posts WHERE id=' .$id);
+
+        return $affectedLines;
+    }
 }
