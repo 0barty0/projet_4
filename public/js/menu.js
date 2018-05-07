@@ -6,8 +6,8 @@ $(document).ready(function() {
     $('a[href="index.php?action=listPosts"]').parent().addClass('active');
   } else if (action == "?action=login") {
     $('a[href="index.php?action=login"]').parent().addClass('active');
-  } else if (action == "?action=listComment") {
-    $('a[href="index.php?action=listComment"]').parent().addClass('active');
+  } else if (action == "?action=listComments") {
+    $('a[href="index.php?action=listComments"]').parent().addClass('active');
   } else if (action == "?action=createPost") {
     $('a[href="index.php?action=createPost"]').parent().addClass('active');
   }

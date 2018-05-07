@@ -2,18 +2,6 @@
 $title = $post->title();
 
 ob_start();
-if (isset($_SESSION['message'])) {
-    $message= $_SESSION['message'];
-    unset($_SESSION['message']); ?>
-  <div class="row">
-    <div class="alert alert-success col-md-8 col-md-offset-2">
-      <p>
-        <?= $message ?>
-      </p>
-    </div>
-  </div>
-  <?php
-}
 ?>
 <div class="row">
   <div class="panel panel-primary col-md-8 col-md-offset-2">
