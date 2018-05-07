@@ -76,14 +76,34 @@ function addComment()
             $affectedLines = $commentManager->postComment($postId, $author, $comment);
 
             if ($affectedLines === false) {
-                throw new \Exception("Impossible d'ajouter le commentaire.", 1);
+                throw new \Exception("Erreur lors de l'ajout de commentaire.", 1);
             } else {
-                header('location: index.php?action=post&id='. $postId);
+                header('location:index.php?action=post&id='. $postId);
             }
         } else {
             throw new \Exception("Tous les champs ne sont pas remplis", 1);
         }
     } else {
         throw new \Exception("Aucun identifiant de billet envoyé", 1);
+    }
+}
+
+function reportComment()
+{
+    if (isset($_GET['id']) && isset($_GET['idPost'])) {
+        $id = htmlspecialchars($_GET['id']);
+        $postId = htmlspecialchars($_GET['idPost']);
+        $commentManager = new CommentManager();
+
+        $affectedLines = $commentManager->reportComment($id);
+
+        if ($affectedLines === false) {
+            throw new \Exception("Erreur lors de signalement de commentaire", 1);
+        } else {
+            $_SESSION['message'] = "Commentaire signalé.";
+            header('location:index.php?action=post&id='. $postId);
+        }
+    } else {
+        throw new \Exception("Aucun identifiant de commentaire ou de billet envoyé", 1);
     }
 }

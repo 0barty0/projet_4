@@ -26,7 +26,7 @@ if (count($posts) === 0) {
               <?= $except ?>
               <div class="text-right">
                 <a href="?action=modify&amp;id=<?= $post->id() ?>" class="btn btn-primary">Modifier</a>
-                <a href="?action=delete&amp;id=<?= $post->id() ?>" class="btn btn-warning">Supprimer</a>
+                <a href="?action=deletePost&amp;id=<?= $post->id() ?>" class="btn btn-warning">Supprimer</a>
               </div>
             </div>
           </div>

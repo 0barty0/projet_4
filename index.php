@@ -15,12 +15,16 @@ try {
                 addPost();
             } elseif ($action == 'listPosts') {
                 adminListPosts();
+            } elseif ($action == 'listComments') {
+                listComments();
             } elseif ($action == 'modify') {
                 modify();
             } elseif ($action == 'update') {
                 update();
-            } elseif ($action == 'delete') {
+            } elseif ($action == 'deletePost') {
                 deletePost();
+            } elseif ($action == 'deleteComment') {
+                deleteComment();
             } else {
                 adminAccess();
             }
@@ -39,6 +43,8 @@ try {
                 addComment();
             } elseif ($action == "login") {
                 login();
+            } elseif ($action == "reportComment") {
+                reportComment();
             } else {
                 showHome();
             }

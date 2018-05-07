@@ -2,8 +2,19 @@
 $title = $post->title();
 
 ob_start();
+if (isset($_SESSION['message'])) {
+    $message= $_SESSION['message'];
+    unset($_SESSION['message']); ?>
+  <div class="row">
+    <div class="alert alert-success col-md-8 col-md-offset-2">
+      <p>
+        <?= $message ?>
+      </p>
+    </div>
+  </div>
+  <?php
+}
 ?>
-
 <div class="row">
   <div class="panel panel-primary col-md-8 col-md-offset-2">
     <div class="panel-heading">
@@ -29,6 +40,9 @@ ob_start();
               </div>
               <div class="panel-body">
                 <p><?= nl2br($comment->comment()) ?></p>
+                <form action="index.php?action=reportComment&amp;id=<?= $comment->id() ?>&amp;idPost=<?= $post->id() ?>" method="post" class="text-right">
+                  <button type="submit" class="btn btn-warning">Signaler</button>
+                </form>
               </div>
             </div>
           <?php

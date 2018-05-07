@@ -28,7 +28,7 @@
         <li><a href="index.php">Accueil</a></li>
         <li><a href="index.php?action=createPost">Écrire un article</a></li>
         <li><a href="index.php?action=listPosts">Gestion des articles</a></li>
-        <li><a href="index.php?action=listComment">Modération des commentaires</a></li>
+        <li><a href="index.php?action=listComments">Modération des commentaires</a></li>
         <li><a href="index.php?action=deconnexion">Déconnexion</a></li>
       </ul>
     </div><!-- /.navbar-collapse -->

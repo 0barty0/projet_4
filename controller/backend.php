@@ -118,14 +118,20 @@ function deletePost()
 {
     if (isset($_GET['id'])) {
         $id = htmlspecialchars($_GET['id']);
-        $postManager=new PostManager();
+        $postManager = new PostManager();
+        $commentManager = new CommentManager();
 
         if ($postManager->exists($id)) {
-            $result = $postManager->deletePost($id);
-            if ($result !== 0) {
-                $_SESSION['message'] = "L'article a bien été supprimé !";
-                header('location:index.php');
-                exit();
+            $resultPost = $postManager->deletePost($id);
+            $resultComments = $commentManager->deleteComments($id);
+            if ($resultPost == 0) {
+                if ($resultComments == 0) {
+                    $_SESSION['message'] = "L'article a bien été supprimé !";
+                    header('location:index.php');
+                    exit();
+                } else {
+                    throw new \Exception("Les commentaires de l'article n'ont pas pu être supprimés.", 1);
+                }
             } else {
                 throw new \Exception("L'article n'a pas pu être supprimé.", 1);
             }
@@ -134,5 +140,34 @@ function deletePost()
         }
     } else {
         throw new \Exception("Aucun identifiant de billet envoyé.", 1);
+    }
+}
+
+function listComments()
+{
+    $commentManager = new CommentManager();
+
+    $comments = $commentManager->getReportedComments();
+
+    require(__DIR__.'/../view/backend/listComments.php');
+}
+
+function deleteComment()
+{
+    if (isset($_GET['id'])) {
+        $id = htmlspecialchars($_GET['id']);
+        $commentManager = new CommentManager();
+
+        $affectedLines = $commentManager->deleteComment($id);
+
+        if ($affectedLines !== 0) {
+            $_SESSION['message'] = "Commentaire supprimé";
+
+            header('location:index.php?action=listComments');
+        } else {
+            throw new \Exception("Le commentaire n'a pas pu être supprimé", 1);
+        }
+    } else {
+        throw new \Exception("Aucun identifiant de commentaire envoyé", 1);
     }
 }

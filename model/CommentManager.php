@@ -28,4 +28,45 @@ class CommentManager extends Manager
 
         return $affectedLines;
     }
+
+    public function deleteComment($id)
+    {
+        $db = $this->dbConnect();
+
+        $affectedLines = $db->exec('DELETE FROM comments WHERE id=' .$id);
+
+        return $affectedLines;
+    }
+
+    public function deleteComments($postId)
+    {
+        $db = $this->dbConnect();
+
+        $affectedLines = $db->exec('DELETE FROM comments WHERE post_id=' .$postId);
+
+        return $affectedLines;
+    }
+
+    public function reportComment($id)
+    {
+        $db = $this->dbConnect();
+
+        $affectedLines = $db->exec('UPDATE comments SET reported = true WHERE id=' .$id);
+
+        return $affectedLines;
+    }
+
+    public function getReportedComments()
+    {
+        $db = $this->dbConnect();
+        $comments = [];
+
+        $req = $db->query('SELECT * FROM comments WHERE reported=1');
+
+        while ($data = $req->fetch(PDO::FETCH_ASSOC)) {
+            $comments[] = new Comment($data);
+        }
+
+        return $comments;
+    }
 }
