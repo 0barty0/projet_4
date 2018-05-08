@@ -1,0 +1,4 @@
+AuthName "Page d'administration"
+AuthType Basic
+AuthUserFile /home/fabien/Public/projet_4/admin/.htpasswd
+Require valid-user
