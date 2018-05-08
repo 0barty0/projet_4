@@ -4,29 +4,29 @@ $title = $post->title();
 ob_start();
 ?>
 <div class="row">
-  <div class="panel panel-primary col-md-8 col-md-offset-2">
-    <div class="panel-heading">
+  <div class="card card-primary col-md-8 offset-md-2">
+    <div class="card-header">
       <h1><?= $post->title() ?></h1>
       <p><?= $post->creation_date() ?></p>
     </div>
-    <div class="panel-body">
+    <div class="card-body">
       <?= $post->content() ?>
     </div>
   </div>
 </div>
 
 <div class="row">
-  <div class="panel-group col-md-4 col-md-offset-2">
+  <div class="card-group col-md-4 offset-md-2">
       <h2>Commentaires</h2>
       <?php
         foreach ($comments as $comment) {
             ?>
-            <div class="panel panel-info">
-              <div class="panel-heading">
+            <div class="card card-info">
+              <div class="card-header">
                 <h3><?= $comment->author() ?></h3>
                 <p><?= $comment->comment_date_fr() ?></p>
               </div>
-              <div class="panel-body">
+              <div class="card-body">
                 <p><?= nl2br($comment->comment()) ?></p>
                 <form action="index.php?action=reportComment&amp;id=<?= $comment->id() ?>&amp;idPost=<?= $post->id() ?>" method="post" class="text-right">
                   <button type="submit" class="btn btn-warning">Signaler</button>
