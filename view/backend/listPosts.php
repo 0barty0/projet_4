@@ -5,7 +5,7 @@ ob_start();
 if (count($posts) === 0) {
     ?>
   <div class="row">
-    <div class="alert alert-info col-md-8 col-md-offset-2" role="alert">
+    <div class="alert alert-info col-md-8 offset-md-2" role="alert">
       <p>Il n'y a aucun articles.</p>
     </div>
   </div>
@@ -16,22 +16,19 @@ if (count($posts) === 0) {
             if (preg_match('/^.{1,250}\b/su', $content, $match)) {
                 $except = $match[0];
             } ?>
-      <div class="row">
-        <div class="panel-group col-md-8 col-md-offset-2">
-          <div class="panel panel-primary">
-            <div class="panel-heading">
-              <h2><?= $post->title() ?></h2>
-            </div>
-            <div class="panel-body">
-              <?= $except ?>
-              <div class="text-right">
-                <a href="?action=modify&amp;id=<?= $post->id() ?>" class="btn btn-primary">Modifier</a>
-                <a href="?action=deletePost&amp;id=<?= $post->id() ?>" class="btn btn-warning">Supprimer</a>
+
+          <div class="row">
+            <div class="col-md-8 offset-md-2">
+              <div class="card">
+                  <h2 class="card-header text-white bg-primary"><?= $post->title() ?></h2>
+                <div class="card-body">
+                  <?= $except ?>
+                    <a href="?action=modify&amp;id=<?= $post->id() ?>" class="btn btn-primary">Modifier</a>
+                    <a href="?action=deletePost&amp;id=<?= $post->id() ?>" class="btn btn-warning">Supprimer</a>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </div>
 
     <?php
         }

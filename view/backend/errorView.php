@@ -5,11 +5,9 @@ $title = "Erreur";
 ob_start();
 ?>
   <div class="row">
-    <div class="panel panel-danger col-md-8 col-md-offset-2">
-      <div class="panel-heading">
-        <h2>Erreur</h2>
-      </div>
-      <div class="panel-body">
+    <div class="card card-danger col-md-8 offset-md-2">
+        <h2 class="card-header">Erreur</h2>
+      <div class="card-body">
         <p><?= $errorMessage ?></p>
         <div class="text-right">
           <button class="btn btn-danger" onclick="document.location.href=document.referrer">Retour</button>
