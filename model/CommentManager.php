@@ -29,6 +29,13 @@ class CommentManager extends Manager
         return $affectedLines;
     }
 
+    public function exists($postId)
+    {
+        $db = $this->dbConnect();
+        $req = $db->query('SELECT COUNT(*) FROM comments WHERE post_id='. $postId);
+        return (bool) $req->fetchColumn();
+    }
+
     public function deleteComment($id)
     {
         $db = $this->dbConnect();
