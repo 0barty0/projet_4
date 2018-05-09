@@ -1,3 +1,19 @@
 h1 {
   text-align: center;
 }
+#home_image {
+  width: 100%;
+}
+/***** Navbar  ******/
+.navbar {
+  background-color: #3aaed8 !important;
+}
+.navbar a.nav-link {
+  color: #fcfffd;
+}
+.navbar li.active {
+  background-color: #fcfffd !important;
+}
+.navbar li.active a.nav-link {
+  color: #5d737e !important;
+}

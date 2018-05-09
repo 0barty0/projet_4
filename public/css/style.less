@@ -1,0 +1,29 @@
+// out: ./style.css
+
+@white : #fcfffd;
+@blue : #3aaed8;
+@lightblue : #daffef;
+@skyblue : #c0fdfb;
+@grey : #5d737e;
+
+h1 {
+  text-align: center;
+}
+
+#home_image {
+  width: 100%;
+}
+
+/***** Navbar  ******/
+.navbar {
+  background-color: @blue !important;
+    a.nav-link {
+      color: @white;
+  }
+  li.active {
+    background-color: @white !important;
+    a.nav-link {
+      color: @grey !important;
+    }
+  }
+}
