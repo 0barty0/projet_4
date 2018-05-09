@@ -1,6 +1,9 @@
 body {
   background-color: #daffef;
 }
+#main {
+  margin: 10px 0;
+}
 /***** Navbar  ******/
 .navbar {
   background-color: #3aaed8 !important;
@@ -27,7 +30,7 @@ h1 {
 #home {
   position: relative;
 }
-#title {
+#home_title {
   position: absolute;
   top: 15px;
   right: 30px;

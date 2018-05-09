@@ -19,8 +19,8 @@ if (isset($_SESSION['articleContent'])) {
 ob_start();
 ?>
 <div class="row">
-  <div class="card col-md-8 offset-md-2">
-    <h2 class="card-header">Nouvel article</h2>
+  <div class="card col-lg-8 offset-lg-2">
+    <h2 class="card-header text-white bg-primary">Nouvel article</h2>
     <div class="card-body">
       <form action="index.php?action=addPost" method="post">
         <div class="form-group">
@@ -37,7 +37,13 @@ ob_start();
   </div>
 </div>
 
-<script>tinymce.init({ selector:'#content' });</script>
+<script>
+  tinymce.init({
+    selector:'textarea#content',
+    min_height:250,
+    plugins:'lists,image',
+    language:'fr_FR' });
+</script>
 <?php
 
 $content=ob_get_clean();

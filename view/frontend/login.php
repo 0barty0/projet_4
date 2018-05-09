@@ -4,8 +4,8 @@ $title="Connexion";
 ob_start();
 ?>
   <div class="row justify-content-center">
-    <div class="card card-primary col-md-4">
-      <h2 class="card-header">Accès à la zone administrative</h2>
+    <div class="card col-md-4">
+      <h2 class="card-header text-white bg-primary">Accès à la zone administrative</h2>
       <div class="card-body">
         <form action="index.php?action=login" method="post">
           <div class="form-group">
@@ -16,7 +16,9 @@ ob_start();
             <label for="password">Mot de passe :</label>
             <input type="password" name="password" id="password" class="form-control">
           </div>
-          <button type="submit" class="btn btn-primary">Connexion</button>
+          <div class="text-right">
+            <button type="submit" class="btn btn-primary">Connexion</button>
+          </div>
         </form>
       </div>
     </div>
