@@ -12,7 +12,7 @@ if (count($posts) === 0) {
   <?php
 } else {
         foreach ($posts as $post) {
-            $content = $post->content();
+            $content = strip_tags($post->content());
             if (preg_match('/^.{1,250}\b/su', $content, $match)) {
                 $except = $match[0];
             } ?>
@@ -23,8 +23,10 @@ if (count($posts) === 0) {
                   <h2 class="card-header text-white bg-primary"><?= $post->title() ?></h2>
                 <div class="card-body">
                   <?= $except ?>
-                    <a href="?action=modify&amp;id=<?= $post->id() ?>" class="btn btn-primary">Modifier</a>
-                    <a href="?action=deletePost&amp;id=<?= $post->id() ?>" class="btn btn-warning">Supprimer</a>
+                </div>
+                <div class="card-footer">
+                  <a href="?action=modify&amp;id=<?= $post->id() ?>" class="btn btn-primary">Modifier</a>
+                  <a href="?action=deletePost&amp;id=<?= $post->id() ?>" class="btn btn-warning">Supprimer</a>
                 </div>
               </div>
             </div>
