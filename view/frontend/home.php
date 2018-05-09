@@ -1,5 +1,5 @@
 <?php
-$title = "Accueil";
+$title = "Un billet pour l'Alaska";
 
 ob_start();
 ?>
