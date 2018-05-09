@@ -25,7 +25,7 @@ if (count($posts) === 0) {
             <div class="card">
               <h2 class="card-header text-white bg-primary"><?= $post->title() ?></h2>
               <div class="card-body">
-                <?= $except ?>
+                <p><?= $except ?></p>
               </div>
               <div class="card-footer text-right">
                 <a href="?action=modify&amp;id=<?= $post->id() ?>" class="btn btn-primary">Modifier</a>
