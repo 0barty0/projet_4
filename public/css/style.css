@@ -4,6 +4,9 @@ body {
 #main {
   margin: 10px 0;
 }
+.card {
+  margin-top: 10px;
+}
 /***** Navbar  ******/
 .navbar {
   background-color: #3aaed8 !important;
@@ -42,7 +45,4 @@ h1 {
 /***** List posts *****/
 #list_posts h1 {
   background-color: #fcfffd;
-}
-#list_posts .card {
-  margin: 10px 0;
 }
