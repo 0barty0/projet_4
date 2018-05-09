@@ -17,9 +17,17 @@ ob_start();
 
 <?php
 if (count($comments) === 0) {
-    //Display alert
-} else {
     ?>
+    <div class="row">
+      <div class="alert alert-success col-md-8 offset-md-2">
+        <p>
+          Aucun commentaire.
+        </p>
+      </div>
+    </div>
+    <?php
+} else {
+        ?>
   <div class="row">
     <div class="card col-md-4 offset-md-2">
         <h2 class="card-header text-white bg-primary">Commentaires</h2>
@@ -47,26 +55,24 @@ if (count($comments) === 0) {
     </div>
   </div>
 <?php
-}
+    }
  ?>
 
 <div class="row">
   <div class="card col-md-4 offset-md-2">
-    <h2 class="card-header text-white bg-primary">Ajouter un commentaire</h2>
+    <h3 class="card-header text-white bg-primary">Ajouter un commentaire</h3>
     <div class="card-body">
-      <form action="index.php?action=addComment&amp;id=<?= $post->id() ?>" method="post" class="form-horizontal">
-        <div class="form-group">
-          <label for="author" class="control-label col-sm-4">Auteur :</label>
-          <div class="col-sm-8">
+      <form action="index.php?action=addComment&amp;id=<?= $post->id() ?>" method="post">
+        <div class="form-group row">
+          <label for="author" class="col-form-label col-sm-3">Auteur :</label>
+          <div class="col-sm-9">
             <input type="text" class="form-control" name="author" id="author">
           </div>
         </div>
 
         <div class="form-group">
-          <label for="comment" class="control-label col-sm-4">Commentaire :</label>
-          <div class="col-sm-8">
+          <label for="comment" class="col-form-label">Commentaire :</label>
             <textarea class="form-control" name="comment" id="comment" cols="30" rows="10"></textarea>
-          </div>
         </div>
 
         <div class="text-right">

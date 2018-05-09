@@ -54,9 +54,10 @@ class PublicController
             $id = htmlspecialchars($_GET['id']);
             $postManager = new PostManager();
             $commentManager = new CommentManager();
-            $post = $postManager->getPost($id);
-            $comments = $commentManager->getComments($id);
-            if ($post) {
+
+            if ($postManager->exists($id)) {
+                $post = $postManager->getPost($id);
+                $comments = $commentManager->getComments($id);
                 require(__DIR__.'/../view/frontend/post.php');
             } else {
                 throw new \Exception("Aucun billet à ce numéro", 1);
@@ -80,6 +81,7 @@ class PublicController
                 if ($affectedLines === false) {
                     throw new \Exception("Erreur lors de l'ajout de commentaire.", 1);
                 } else {
+                    $_SESSION['message'] = "Votre commentaire a été posté.";
                     header('location:index.php?action=post&id='. $postId);
                 }
             } else {
