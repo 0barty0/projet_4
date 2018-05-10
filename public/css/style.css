@@ -1,8 +1,5 @@
 body {
-  background-color: #daffef;
-}
-#main {
-  margin: 10px 0;
+  background-color: #fcfffd;
 }
 .card {
   margin-top: 10px;
@@ -27,6 +24,11 @@ body {
 .custom-toggler .navbar-toggler-icon {
   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(252,255,253, 0.7)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
 }
+/***** Footer *****/
+footer {
+  height: 100px;
+  background-color: #3aaed8;
+}
 /***** Home page *****/
 h1 {
   text-align: center;
@@ -42,6 +44,16 @@ h1 {
 #home_image {
   width: 100%;
   filter: opacity(70%);
+}
+#presentation {
+  color: #5d737e;
+  background: url("../images/polaroid.png");
+  padding: 40px;
+  border: 10px solid #5d737e;
+}
+#presentation p {
+  text-align: center;
+  font-size: 2em;
 }
 /***** List posts *****/
 #list_posts h1 {
