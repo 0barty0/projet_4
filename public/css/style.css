@@ -28,6 +28,10 @@ body {
 footer {
   height: 100px;
   background-color: #3aaed8;
+  color: #fcfffd;
+}
+#social {
+  text-align: center;
 }
 /***** Home page *****/
 h1 {

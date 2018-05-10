@@ -53,7 +53,20 @@ if (isset($_SESSION['message'])) {
 <?= $content ?>
  </section>
 <footer>
-
+  <div class="row">
+    <div class="col-sm-4">
+      <div id="social">
+        <h3>Partagez ce blog</h3>
+        <div id="social_btn">
+          <i class="fab fa-2x fa-facebook-square"></i>
+          <i class="fab fa-2x fa-twitter-square"></i>
+          <i class="fab fa-2x fa-google-plus-square"></i>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-4"></div>
+    <div class="col-sm-4"></div>
+  </div>
 </footer>
 </div>
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
