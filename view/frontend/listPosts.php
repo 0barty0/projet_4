@@ -3,7 +3,7 @@ $title = "Liste des chapîtres";
 
 ob_start();
 ?>
-  <section id="list_posts">
+  <div id="list_posts">
     <?php
 if (count($posts) === 0) {
     ?>
@@ -40,7 +40,7 @@ if (count($posts) === 0) {
       }
     }
 ?>
-            <section>
+            <div>
               <?php
 $content = ob_get_clean();
 

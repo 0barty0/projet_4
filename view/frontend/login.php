@@ -4,7 +4,7 @@ $title="Connexion";
 ob_start();
 ?>
   <div class="row justify-content-center">
-    <div class="card col-md-4">
+    <div class="card col-md-4" id="login_form">
       <h2 class="card-header text-white bg-primary">Accès à la zone administrative</h2>
       <div class="card-body">
         <form action="index.php?action=login" method="post">

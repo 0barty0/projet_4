@@ -30,7 +30,6 @@
     <ul class="navbar-nav mr-auto">
       <li class="nav-item"><a href="index.php" class="nav-link">Accueil</a></li>
       <li class="nav-item"><a href="index.php?action=listPosts" class="nav-link">Liste des chapîtres</a></li>
-      <li class="nav-item"><a href="index.php?action=login" class="nav-link">Connexion</a></li>
     </ul>
   </div>
 </nav>
@@ -53,20 +52,20 @@ if (isset($_SESSION['message'])) {
 <?= $content ?>
  </section>
 <footer>
-  <div class="row">
-    <div class="col-sm-4">
-      <div id="social">
-        <h3>Partagez ce blog</h3>
+  <div class="row justify-content-around">
+    <div class="col-sm-4" id="social">
+        <h4>Partagez ce blog</h4>
         <div id="social_btn">
-          <i class="fab fa-2x fa-facebook-square"></i>
-          <i class="fab fa-2x fa-twitter-square"></i>
-          <i class="fab fa-2x fa-google-plus-square"></i>
+          <a href="#"><i class="fab fa-2x fa-facebook-square"></i></a>
+          <a href="#"><i class="fab fa-2x fa-twitter-square"></i></a>
+          <a href="#"><i class="fab fa-2x fa-google-plus-square"></i></a>
         </div>
-      </div>
     </div>
-    <div class="col-sm-4"></div>
-    <div class="col-sm-4"></div>
+    <div class="col-sm-4">
+      <h4><a href="index.php?action=login">Connexion</a></h4>
+    </div>
   </div>
+  <p id="copyright"><i class="far fa-copyright"></i> Jean Forteroche 2018</p>
 </footer>
 </div>
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
