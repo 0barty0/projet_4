@@ -36,20 +36,7 @@
 </nav>
 
 <section id="main">
-<?php
-if (isset($_SESSION['message'])) {
-    $message= $_SESSION['message'];
-    unset($_SESSION['message']); ?>
-  <div class="row">
-    <div class="alert alert-success col-md-8 offset-md-2">
-      <p>
-        <?= $message ?>
-      </p>
-    </div>
-  </div>
-  <?php
-}
- ?>
+
 <?= $content ?>
  </section>
 <footer>

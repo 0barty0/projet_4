@@ -42,14 +42,16 @@
     if (isset($_SESSION['message'])) {
         $message= $_SESSION['message'];
         unset($_SESSION['message']); ?>
-          <div class="row">
-            <div class="alert alert-success col-md-8 offset-md-2">
-              <p>
-                <?= $message ?>
-              </p>
-            </div>
+      <div class="row">
+        <div class="col-md-8 offset-md-2">
+          <div class="alert alert-success ">
+            <p>
+              <?= $message ?>
+            </p>
           </div>
-          <?php
+        </div>
+      </div>
+      <?php
     }
     ?>
       <?= $content ?>

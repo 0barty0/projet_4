@@ -12,6 +12,9 @@ body {
 .bg-primary {
   background-color: #3aaed8 !important;
 }
+.bg-secondary {
+  background-color: #5d737e;
+}
 .btn-primary {
   background-color: #3aaed8 !important;
 }
