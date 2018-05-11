@@ -16,7 +16,8 @@ ob_start();
 </div>
 
 <?php
-if (count($comments) === 0) {
+$nbComments = count($comments);
+if ($nbComments === 0) {
     ?>
     <div class="row">
       <div class="alert alert-success col-md-8 offset-md-2">
@@ -29,13 +30,20 @@ if (count($comments) === 0) {
 } else {
         ?>
   <div class="row">
-    <div class="card col-md-4 offset-md-2">
-        <h2 class="card-header text-white bg-primary">Commentaires</h2>
+    <div class="card col-md-8 offset-md-2">
+        <h3 class="card-header text-white bg-primary">
+          <?php
+            if ($nbComments === 1) {
+                echo "1 commentaire";
+            } else {
+                echo $nbComments. " commentaires";
+            } ?>
+        </h3>
         <div class="card-body">
         <?php
           foreach ($comments as $comment) {
               ?>
-              <div class="card">
+              <div class="card comment">
                 <div class="card-header text-white bg-primary">
                   <h3><?= $comment->author() ?></h3>
                   <p><?= $comment->comment_date_fr() ?></p>
@@ -59,20 +67,22 @@ if (count($comments) === 0) {
  ?>
 
 <div class="row">
-  <div class="card col-md-4 offset-md-2">
+  <div class="card col-md-8 offset-md-2">
     <h3 class="card-header text-white bg-primary">Ajouter un commentaire</h3>
     <div class="card-body">
       <form action="index.php?action=addComment&amp;id=<?= $post->id() ?>" method="post">
         <div class="form-group row">
-          <label for="author" class="col-form-label col-sm-3">Auteur :</label>
-          <div class="col-sm-9">
+          <label for="author" class="col-form-label col-md-3">Auteur :</label>
+          <div class="col-md-9">
             <input type="text" class="form-control" name="author" id="author">
           </div>
         </div>
 
-        <div class="form-group">
-          <label for="comment" class="col-form-label">Commentaire :</label>
-            <textarea class="form-control" name="comment" id="comment" cols="30" rows="10"></textarea>
+        <div class="form-group row">
+          <label for="comment" class="col-form-label col-md-3">Commentaire :</label>
+            <div class="col-md-9">
+              <textarea class="form-control" name="comment" id="comment" cols="30" rows="10"></textarea>
+            </div>
         </div>
 
         <div class="text-right">

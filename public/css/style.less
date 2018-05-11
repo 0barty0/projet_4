@@ -19,6 +19,14 @@ body {
   margin-top: 20px;
   margin-bottom: 20px;
 }
+
+.bg-primary {
+  background-color: @blue !important;
+}
+
+.btn-primary {
+  background-color: @blue !important;
+}
 /***** Navbar  ******/
 .navbar {
   background-color: @blue !important;
@@ -120,5 +128,21 @@ footer {
     background-color: @grey;
     color: @white;
     padding: 20px 0;
+  }
+}
+
+/***** Post *****/
+.comment {
+  .card-header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content : space-between;
+    h3 {
+      width: auto;
+    }
+    p {
+      width: auto;
+
+    }
   }
 }

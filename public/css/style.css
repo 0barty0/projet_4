@@ -9,6 +9,12 @@ body {
   margin-top: 20px;
   margin-bottom: 20px;
 }
+.bg-primary {
+  background-color: #3aaed8 !important;
+}
+.btn-primary {
+  background-color: #3aaed8 !important;
+}
 /***** Navbar  ******/
 .navbar {
   background-color: #3aaed8 !important;
@@ -94,4 +100,16 @@ footer a :hover {
   background-color: #5d737e;
   color: #fcfffd;
   padding: 20px 0;
+}
+/***** Post *****/
+.comment .card-header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.comment .card-header h3 {
+  width: auto;
+}
+.comment .card-header p {
+  width: auto;
 }
