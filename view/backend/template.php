@@ -37,6 +37,7 @@
     </nav>
 
     <section id="main">
+      <h1 class="display-4" id="main_title">Un billet pour l'Alaska</h1>
     <?php
     if (isset($_SESSION['message'])) {
         $message= $_SESSION['message'];

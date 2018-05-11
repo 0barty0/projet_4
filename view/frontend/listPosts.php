@@ -3,6 +3,7 @@ $title = "Liste des chapîtres";
 
 ob_start();
 ?>
+<h1 class="display-4" id="main_title">Un billet pour l'Alaska</h1>
   <div id="list_posts">
     <?php
 if (count($posts) === 0) {
@@ -14,14 +15,11 @@ if (count($posts) === 0) {
       </div>
       <?php
 } else {
-        ?>
-        <h1 class="display-4">Un billet pour l'Alaska</h1>
-        <?php
-      foreach ($posts as $post) {
-          $content = strip_tags($post->content());
-          if (preg_match('/^.{1,250}\b/su', $content, $match)) {
-              $except = $match[0];
-          } ?>
+        foreach ($posts as $post) {
+            $content = strip_tags($post->content());
+            if (preg_match('/^.{1,250}\b/su', $content, $match)) {
+                $except = $match[0];
+            } ?>
           <article class="row">
             <div class="col-lg-8 offset-lg-2">
               <div class="card">
@@ -37,7 +35,7 @@ if (count($posts) === 0) {
           </article>
 
           <?php
-      }
+        }
     }
 ?>
             <div>

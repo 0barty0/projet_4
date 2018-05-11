@@ -3,6 +3,7 @@ $title = $post->title();
 
 ob_start();
 ?>
+<h1 class="display-4" id="main_title">Un billet pour l'Alaska</h1>
 <div class="row">
   <div class="card col-lg-8 offset-lg-2">
     <div class="card-header text-white bg-primary">
