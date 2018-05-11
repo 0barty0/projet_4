@@ -1,5 +1,6 @@
 body {
   background-color: #fcfffd;
+  font-family: 'Lato', sans-serif;
 }
 #main {
   margin-bottom: 100px;
@@ -64,13 +65,11 @@ footer a :hover {
   text-align: center;
 }
 /***** Home page *****/
-h1 {
-  text-align: center;
-}
 #home {
   position: relative;
 }
 #home_title {
+  font-family: 'Limelight', cursive;
   position: absolute;
   top: 15px;
   right: 30px;
@@ -82,7 +81,7 @@ h1 {
 #presentation {
   color: #5d737e;
   background: url("../images/polaroid.png");
-  padding: 40px 40px 100px;
+  padding: 40px;
   border: 10px solid #5d737e;
 }
 #presentation p {
@@ -91,5 +90,8 @@ h1 {
 }
 /***** List posts *****/
 #list_posts h1 {
-  background-color: #fcfffd;
+  font-family: 'Limelight', cursive;
+  background-color: #5d737e;
+  color: #fcfffd;
+  padding: 20px 0;
 }

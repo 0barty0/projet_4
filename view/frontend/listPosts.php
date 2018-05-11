@@ -15,7 +15,7 @@ if (count($posts) === 0) {
       <?php
 } else {
         ?>
-        <h1 class="display-3">Un billet pour l'Alaska</h1>
+        <h1 class="display-4">Un billet pour l'Alaska</h1>
         <?php
       foreach ($posts as $post) {
           $content = strip_tags($post->content());

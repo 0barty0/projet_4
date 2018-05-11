@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.12/css/all.css" integrity="sha384-G0fIWCsCzJIMAVNQPfjH08cyYaUtMwjJwqiRKxxE/rx96Uroj1BtIQ6MLJuheaO9" crossorigin="anonymous">
   <link rel="stylesheet" href="public/css/style.css">
+  <link href="https://fonts.googleapis.com/css?family=Lato|Limelight" rel="stylesheet">
   <script src="public/js/tinymce/tinymce.min.js"></script>
   <script src="public/js/tinymce/jquery.tinymce.min.js"></script>
   <title>
