@@ -36,7 +36,6 @@
 </nav>
 
 <section id="main">
-
 <?= $content ?>
  </section>
 <footer>

@@ -39,10 +39,12 @@ $nbComments = count($comments);
 if ($nbComments === 0) {
     ?>
     <div class="row">
-      <div class="alert alert-success col-md-8 offset-md-2">
-        <p>
-          Aucun commentaire.
-        </p>
+      <div class="col-md-8 offset-md-2">
+        <div class="alert alert-success">
+          <p>
+            Aucun commentaire.
+          </p>
+        </div>
       </div>
     </div>
     <?php
@@ -71,10 +73,8 @@ if ($nbComments === 0) {
                   <div class="card-body">
                     <p><?= nl2br($comment->comment()) ?></p>
                   </div>
-                  <div class="card-footer">
-                    <form action="index.php?action=reportComment&amp;id=<?= $comment->id() ?>&amp;idPost=<?= $post->id() ?>" method="post" class="text-right">
-                      <button type="submit" class="btn btn-warning">Signaler</button>
-                    </form>
+                  <div class="card-footer text-right">
+                      <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#reportComment">Signaler</button>
                   </div>
                 </div>
               <?php
@@ -111,6 +111,27 @@ if ($nbComments === 0) {
             <button type="submit" class="btn btn-primary">Envoyer</button>
           </div>
         </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="reportComment" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header bg-warning">
+        <h5 class="modal-title">Signaler un commentaire</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form action="index.php?action=reportComment&amp;id=&amp;idPost=" method="post" id="reportForm" class="text-right">
+        </form>
+      </div>
+      <div class="modal-footer text-right">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+        <button type="submit" class="btn btn-warning">Signaler</button>
       </div>
     </div>
   </div>
