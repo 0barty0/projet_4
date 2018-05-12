@@ -25,10 +25,10 @@ ob_start();
       <div class="card-body">
         <form action="index.php?action=addPost" method="post">
           <div class="form-group">
-            <input class="form-control" type="text" name="title" id="title" placeholder="Titre" value="<?= $articleTitle ?>">
+            <input class="form-control" type="text" name="title" id="title" placeholder="Titre" value="<?= $articleTitle ?>" required>
           </div>
           <div class="form-group">
-            <textarea name="content" id="content"><?= $articleContent ?></textarea>
+            <textarea name="content" id="content" required><?= $articleContent ?></textarea>
           </div>
           <div class="text-right">
             <button type="submit" class="btn btn-primary">Publier</button>

@@ -96,14 +96,14 @@ if ($nbComments === 0) {
           <div class="form-group row">
             <label for="author" class="col-form-label col-md-3">Auteur :</label>
             <div class="col-md-9">
-              <input type="text" class="form-control" name="author" id="author">
+              <input type="text" class="form-control" name="author" id="author" required>
             </div>
           </div>
 
           <div class="form-group row">
             <label for="comment" class="col-form-label col-md-3">Commentaire :</label>
               <div class="col-md-9">
-                <textarea class="form-control" name="comment" id="comment" cols="30" rows="5"></textarea>
+                <textarea class="form-control" name="comment" id="comment" cols="30" rows="5" required></textarea>
               </div>
           </div>
 
