@@ -53,7 +53,11 @@
       <h4><a href="index.php?action=login">Connexion</a></h4>
     </div>
   </div>
-  <p id="copyright"><i class="far fa-copyright"></i> Jean Forteroche 2018</p>
+  <div class="row">
+    <div class="col-sm-12 text-center">
+      <p id="copyright"><i class="far fa-copyright"></i> Jean Forteroche 2018</p>
+    </div>
+  </div>
 </footer>
 </div>
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

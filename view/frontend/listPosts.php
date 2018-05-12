@@ -27,7 +27,7 @@ if (count($posts) === 0) {
       <div class="row">
         <div class="col-md-8 offset-md-2">
           <div class="alert alert-info" role="alert">
-            <p>Il n'y a aucun articles.</p>
+            <p>Il n'y a aucun article.</p>
           </div>
         </div>
       </div>

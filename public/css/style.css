@@ -3,6 +3,7 @@ body {
   font-family: 'Lato', sans-serif;
 }
 #main {
+  min-height: 60vh;
   margin-bottom: 100px;
 }
 .card {
@@ -43,8 +44,8 @@ footer {
   color: #fcfffd;
   position: relative;
 }
-footer .row > div {
-  margin: 30px 0;
+footer .row > div.col-sm-4 {
+  margin-top: 10px;
 }
 footer h4 {
   text-align: center;
@@ -66,12 +67,6 @@ footer a :hover {
 #social_btn a {
   display: block;
   margin: 0.5em;
-}
-#copyright {
-  position: absolute;
-  width: 100%;
-  bottom: 0;
-  text-align: center;
 }
 /***** Home page *****/
 #home {
