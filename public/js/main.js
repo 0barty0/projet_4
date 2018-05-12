@@ -11,4 +11,12 @@ $(document).ready(function() {
   } else if (action == "?action=createPost") {
     $('a[href="index.php?action=createPost"]').parent().addClass('active');
   }
+
+  let message = $('#message');
+
+  if (message.length !== 0) {
+    setTimeout(function(){
+      message.fadeOut(800);
+    }, 3000);
+  }
 });

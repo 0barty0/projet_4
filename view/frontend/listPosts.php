@@ -25,8 +25,10 @@ if (isset($_SESSION['message'])) {
 if (count($posts) === 0) {
      ?>
       <div class="row">
-        <div class="alert alert-info col-md-8 offset-md-2" role="alert">
-          <p>Il n'y a aucun articles.</p>
+        <div class="col-md-8 offset-md-2">
+          <div class="alert alert-info" role="alert">
+            <p>Il n'y a aucun articles.</p>
+          </div>
         </div>
       </div>
       <?php

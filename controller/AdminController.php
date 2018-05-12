@@ -139,7 +139,7 @@ class AdminController
                 }
 
                 $_SESSION['message'] = "L'article a bien été supprimé !";
-                header('location:index.php');
+                header('location:index.php?action=listPosts');
                 exit();
             } else {
                 throw new \Exception("Aucun article avec cet identifiant", 1);

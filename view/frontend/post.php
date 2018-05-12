@@ -8,7 +8,7 @@ ob_start();
 if (isset($_SESSION['message'])) {
      $message= $_SESSION['message'];
      unset($_SESSION['message']); ?>
-  <div class="row">
+  <div class="row" id="message">
     <div class="col-md-8 offset-md-2">
       <div class="alert alert-success ">
         <p>
