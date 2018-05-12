@@ -22,6 +22,8 @@ class PublicController
             if ($admin) {
                 if (password_verify($password, $admin['password'])) {
                     $_SESSION['pseudo'] = $admin['pseudo'];
+                    $_SESSION['name'] = $admin['name'];
+                    $_SESSION['firstname'] = $admin['firstname'];
                     $_SESSION['authenticated'] = true;
                     header("location:index.php");
                 } else {

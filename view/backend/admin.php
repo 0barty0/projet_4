@@ -3,7 +3,7 @@ $title="Admnistration";
 
 ob_start();
 ?>
-<h1>Bienvenue <?= $_SESSION['pseudo'] ?> !</h1>
+<h1>Bienvenue <?= $_SESSION['firstname'] ?> <?= $_SESSION['name'] ?> !</h1>
 <?php
 $content=ob_get_clean();
 
