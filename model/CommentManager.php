@@ -19,6 +19,20 @@ class CommentManager extends Manager
         return $comments;
     }
 
+    public function getAllComments()
+    {
+        $db = $this->dbConnect();
+        $comments = [];
+
+        $req = $db->query('SELECT id, post_id, author, comment, comment_date, DATE_FORMAT(comment_date, "%d/%m/%Y à %Hh%imin%ss") AS comment_date_fr, reported, reporting FROM comments');
+
+        while ($data = $req->fetch(PDO::FETCH_ASSOC)) {
+            $comments[] = new Comment($data);
+        }
+
+        return $comments;
+    }
+
     public function getComment($id)
     {
         $db = $this->dbConnect();
@@ -88,7 +102,21 @@ class CommentManager extends Manager
         $db = $this->dbConnect();
         $comments = [];
 
-        $req = $db->query('SELECT id, post_id, author, comment, comment_date, DATE_FORMAT(comment_date, "%d/%m/%Y à %Hh%imin%ss") AS comment_date_fr FROM comments WHERE reported=1');
+        $req = $db->query('SELECT id, post_id, author, comment, comment_date, DATE_FORMAT(comment_date, "%d/%m/%Y à %Hh%imin%ss") AS comment_date_fr, reported, reporting FROM comments WHERE reported>0 ORDER BY reported');
+
+        while ($data = $req->fetch(PDO::FETCH_ASSOC)) {
+            $comments[] = new Comment($data);
+        }
+
+        return $comments;
+    }
+
+    public function getNonReportedComments()
+    {
+        $db = $this->dbConnect();
+        $comments = [];
+
+        $req = $db->query('SELECT id, post_id, author, comment, comment_date, DATE_FORMAT(comment_date, "%d/%m/%Y à %Hh%imin%ss") AS comment_date_fr FROM comments WHERE reported=0');
 
         while ($data = $req->fetch(PDO::FETCH_ASSOC)) {
             $comments[] = new Comment($data);

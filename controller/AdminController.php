@@ -153,7 +153,8 @@ class AdminController
     {
         $commentManager = new CommentManager();
 
-        $comments = $commentManager->getReportedComments();
+        $reportedComments = $commentManager->getReportedComments();
+        $nonReportedComments = $commentManager->getNonReportedComments();
 
         require(__DIR__.'/../view/backend/listComments.php');
     }
