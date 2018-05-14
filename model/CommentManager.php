@@ -84,13 +84,13 @@ class CommentManager extends Manager
         $comment = $this->getComment($id);
 
         $reported = $comment->reported()+1;
-        $reporting = $comment->reporting() . $reporting .' \n ';
 
         $db = $this->dbConnect();
 
-        $req = $db->prepare('UPDATE comments SET reported = :reported, reporting=:reporting WHERE id=:id');
+        $req = $db->prepare('UPDATE comments SET reported = :reported, reporting=CONCAT_WS(CHAR(10 using utf8), :oldReporting, :newReporting) WHERE id=:id');
         $req->bindValue(':reported', $reported);
-        $req->bindValue(':reporting', $reporting);
+        $req->bindValue(':oldReporting', $comment->reporting());
+        $req->bindValue(':newReporting', $reporting);
         $req->bindValue(':id', $id);
 
         $affectedLines = $req->execute();

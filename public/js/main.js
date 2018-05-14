@@ -27,4 +27,7 @@ $(document).ready(function() {
     let action="index.php?action=reportComment&id="+this.dataset.comment+"&idPost="+this.dataset.post;
     $('#reportForm').attr("action", action);
   });
+
+  // Popover
+  $('[data-toggle="popover"]').popover();
 });

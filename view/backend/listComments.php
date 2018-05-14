@@ -46,10 +46,7 @@ if (count($reportedComments) === 0 && count($nonReportedComments) === 0) {
                           <div class="card comment">
                             <div class="card-header bg-warning">
                               <h3><?= $comment->author() ?></h3>
-                              <p>
-                                <?= $comment->comment_date_fr() ?><br>
-                                  <span class="badge badge-danger">Signalé <?= $comment->reported() ?> fois</span>
-                              </p>
+                              <p><?= $comment->comment_date_fr() ?></p>
                             </div>
                             <div class="card-body">
                               <p>
@@ -57,9 +54,12 @@ if (count($reportedComments) === 0 && count($nonReportedComments) === 0) {
                               </p>
                             </div>
                             <div class="card-footer">
-                              <form action="index.php?action=deleteComment&amp;id=<?= $comment->id() ?>" method="post" class="text-right">
-                                <button type="submit" class="btn btn-warning">Supprimer</button>
-                              </form>
+                                  <div class="row justify-content-around">
+                                    <button type="button" class="btn btn-danger" data-toggle="popover" title="Motif" data-content="<?= $comment->reporting() ?>" data-placement="bottom">Signalé <?= $comment->reported() ?> fois</button>
+                                    <form action="index.php?action=deleteComment&amp;id=<?= $comment->id() ?>" method="post">
+                                    <button type="submit" class="btn btn-warning">Supprimer</button>
+                                    </form>
+                                  </div>
                             </div>
                           </div>
                           <?php
