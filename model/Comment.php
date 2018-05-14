@@ -8,6 +8,8 @@ class Comment
     private $_comment;
     private $_comment_date;
     private $_comment_date_fr;
+    private $_reported;
+    private $_reporting;
 
     public function __construct(array $data)
     {
@@ -52,6 +54,16 @@ class Comment
         return $this->_comment_date_fr;
     }
 
+    public function reported()
+    {
+        return $this->_reported;
+    }
+
+    public function reporting()
+    {
+        return $this->_reporting;
+    }
+
     // Setters
 
     public function setId($id)
@@ -84,5 +96,16 @@ class Comment
     public function setComment_date_fr($comment_date_fr)
     {
         $this->_comment_date_fr = $comment_date_fr;
+    }
+
+    public function setReported($reported)
+    {
+        $reported = (int) $reported;
+        $this->_reported = $reported;
+    }
+
+    public function setReporting($reporting)
+    {
+        $this->_reporting = $reporting;
     }
 }

@@ -74,7 +74,7 @@ if ($nbComments === 0) {
                     <p><?= nl2br($comment->comment()) ?></p>
                   </div>
                   <div class="card-footer text-right">
-                      <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#reportComment">Signaler</button>
+                      <button type="button" class="btn btn-warning report" data-toggle="modal" data-target="#reportComment" data-post="<?= $post->id() ?>" data-comment="<?= $comment->id()?>">Signaler</button>
                   </div>
                 </div>
               <?php
@@ -125,14 +125,24 @@ if ($nbComments === 0) {
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
+      <form action="" method="post" id="reportForm">
       <div class="modal-body">
-        <form action="index.php?action=reportComment&amp;id=&amp;idPost=" method="post" id="reportForm" class="text-right">
-        </form>
+        <div class="form-group">
+          <label for="reporting">Motif du signalement :</label>
+          <select class="form-control" name="reporting">
+            <option value="Message sans rapport avec le contenu">Message sans rapport avec le contenu</option>
+            <option value="Non respect du droit d'auteur">Non respect du droit d'auteur</option>
+            <option value="Incitation à la haine raciale">Incitation à la haine raciale</option>
+            <option value="Propos à caractère homophobe ou sexiste">Propos à caractère homophobe ou sexiste</option>
+            <option value="Diffamation ou injure">Diffamation ou injure</option>
+          </select>
+        </div>
       </div>
       <div class="modal-footer text-right">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
         <button type="submit" class="btn btn-warning">Signaler</button>
       </div>
+      </form>
     </div>
   </div>
 </div>

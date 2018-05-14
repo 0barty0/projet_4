@@ -19,6 +19,17 @@ class CommentManager extends Manager
         return $comments;
     }
 
+    public function getComment($id)
+    {
+        $db = $this->dbConnect();
+
+        $req = $db->query('SELECT * FROM comments WHERE id='. $id);
+        $data = $req->fetch(PDO::FETCH_ASSOC);
+
+        $comment = new Comment($data);
+        return $comment;
+    }
+
     public function postComment($postId, $author, $comment)
     {
         $db = $this->dbConnect();
@@ -54,12 +65,21 @@ class CommentManager extends Manager
         return $affectedLines;
     }
 
-    public function reportComment($id)
+    public function reportComment($id, $reporting)
     {
+        $comment = $this->getComment($id);
+
+        $reported = $comment->reported()+1;
+        $reporting = $comment->reporting() . $reporting .' \n ';
+
         $db = $this->dbConnect();
 
-        $affectedLines = $db->exec('UPDATE comments SET reported = true WHERE id=' .$id);
+        $req = $db->prepare('UPDATE comments SET reported = :reported, reporting=:reporting WHERE id=:id');
+        $req->bindValue(':reported', $reported);
+        $req->bindValue(':reporting', $reporting);
+        $req->bindValue(':id', $id);
 
+        $affectedLines = $req->execute();
         return $affectedLines;
     }
 
