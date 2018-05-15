@@ -55,7 +55,7 @@ if (count($reportedComments) === 0 && count($nonReportedComments) === 0) {
                             </div>
                             <div class="card-footer">
                                   <div class="row justify-content-between">
-                                    <button type="button" class="btn btn-danger" data-toggle="popover" title="Motif" data-content="<?= $comment->reporting() ?>" data-placement="right">Signalé <?= $comment->reported() ?> fois</button>
+                                    <button type="button" class="btn btn-danger" data-toggle="popover" data-trigger="focus" title="Motif" data-content="<?= $comment->reporting() ?>" data-placement="right">Signalé <?= $comment->reported() ?> fois</button>
                                     <form action="index.php?action=deleteComment&amp;id=<?= $comment->id() ?>" method="post">
                                     <button type="submit" class="btn btn-warning">Supprimer</button>
                                     </form>

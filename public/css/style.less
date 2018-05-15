@@ -105,12 +105,13 @@ footer {
 #home_image {
   width: 100%;
   filter: opacity(70%);
+  z-index: -1;
 }
 
 #presentation {
   color: @grey;
   background: url("../images/polaroid.png");
-  padding: 40px;
+  padding: 5vw;
   border: 10px solid @grey;
   p {
     text-align: center;
@@ -140,5 +141,31 @@ h1#main_title {
       width: auto;
 
     }
+  }
+}
+
+/****** Media queries *****/
+@media (max-width: 575px) {
+  html {
+    font-size: 0.8rem;
+  }
+
+  #home_title {
+    position: relative;
+    top: 0;
+    left: 0;
+    background-color: @grey;
+    color: @white;
+    padding: 20px 2px;
+    h1.display-3 {
+      font-size: 1.8rem;
+    }
+    h2 {
+      font-size: 1.3rem;
+    }
+  }
+
+  h1.display-4 {
+    font-size: 1.8rem !important;
   }
 }
