@@ -1,16 +1,15 @@
 $(document).ready(function() {
   // Navbar active item
-  let action = location.search;
-  if (action == "") {
+  let action = location.pathname;
+
+  if (action.search(/listPosts/g) !== -1 || action.search(/post/g) !== -1 || action.search(/modify/g) !== -1) {
+    $('a[href="listPosts/"]').parent().addClass('active');
+  } else if (action.search(/listComments/g) !== -1) {
+    $('a[href="listComments/"]').parent().addClass('active');
+  } else if (action.search(/createPost/g) !== -1) {
+    $('a[href="createPost/"]').parent().addClass('active');
+  } else {
     $('a[href="index.php"]').parent().addClass('active');
-  } else if (action == "?action=listPosts" || action.search(/^\?action=post/g) !== -1) {
-    $('a[href="index.php?action=listPosts"]').parent().addClass('active');
-  } else if (action == "?action=login") {
-    $('a[href="index.php?action=login"]').parent().addClass('active');
-  } else if (action == "?action=listComments") {
-    $('a[href="index.php?action=listComments"]').parent().addClass('active');
-  } else if (action == "?action=createPost") {
-    $('a[href="index.php?action=createPost"]').parent().addClass('active');
   }
 
   // Hide message
@@ -24,7 +23,7 @@ $(document).ready(function() {
 
   // Report comment
   $('.report').on('click', function(){
-    let action="index.php?action=reportComment&id="+this.dataset.comment+"&idPost="+this.dataset.post;
+    let action="index.php?action=reportComment&id="+this.dataset.comment;
     $('#reportForm').attr("action", action);
   });
 

@@ -46,7 +46,7 @@ if (count($posts) === 0) {
                   <p><?= $except ?></p>
                 </div>
                 <div class="card-footer text-right">
-                  <a href="?action=post&amp;id=<?= $post->id() ?>" class="btn btn-primary">Lire la suite</a>
+                  <a href="post/<?= $post->id() ?>" class="btn btn-primary">Lire la suite</a>
                 </div>
               </div>
             </div>

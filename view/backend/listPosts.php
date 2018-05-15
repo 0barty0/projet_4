@@ -30,8 +30,8 @@ if (count($posts) === 0) {
                 <p><?= $except ?></p>
               </div>
               <div class="card-footer text-right">
-                <a href="?action=modify&amp;id=<?= $post->id() ?>" class="btn btn-primary">Modifier</a>
-                <a href="?action=deletePost&amp;id=<?= $post->id() ?>" class="btn btn-warning" onclick="return confirm('Voulez-vous vraiment supprimer ce commentaire ?');">Supprimer</a>
+                <a href="modify/<?= $post->id() ?>" class="btn btn-primary">Modifier</a>
+                <a href="index.php?action=deletePost&amp;id=<?= $post->id() ?>" class="btn btn-warning" onclick="return confirm('Voulez-vous vraiment supprimer cet article ?');">Supprimer</a>
               </div>
             </div>
           </div>

@@ -7,6 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.12/css/all.css" integrity="sha384-G0fIWCsCzJIMAVNQPfjH08cyYaUtMwjJwqiRKxxE/rx96Uroj1BtIQ6MLJuheaO9" crossorigin="anonymous">
+  <BASE href="http://localhost/Public/projet_4/">
   <link rel="stylesheet" href="public/css/style.css">
   <link href="https://fonts.googleapis.com/css?family=Lato|Limelight" rel="stylesheet">
   <script src="public/js/tinymce/tinymce.min.js"></script>
@@ -28,10 +29,10 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item"><a href="index.php" class="nav-link">Accueil</a></li>
-          <li class="nav-item"><a href="index.php?action=createPost" class="nav-link">Écrire un article</a></li>
-          <li class="nav-item"><a href="index.php?action=listPosts" class="nav-link">Gestion des articles</a></li>
-          <li class="nav-item"><a href="index.php?action=listComments" class="nav-link">Modération des commentaires</a></li>
-          <li class="nav-item"><a href="index.php?action=deconnexion" class="nav-link">Déconnexion</a></li>
+          <li class="nav-item"><a href="createPost/" class="nav-link">Écrire un article</a></li>
+          <li class="nav-item"><a href="listPosts/" class="nav-link">Gestion des articles</a></li>
+          <li class="nav-item"><a href="listComments/" class="nav-link">Modération des commentaires</a></li>
+          <li class="nav-item"><a href="deconnexion/" class="nav-link">Déconnexion</a></li>
         </ul>
       </div>
     </nav>
