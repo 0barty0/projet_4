@@ -31,7 +31,7 @@ if (count($posts) === 0) {
               </div>
               <div class="card-footer text-right">
                 <a href="?action=modify&amp;id=<?= $post->id() ?>" class="btn btn-primary">Modifier</a>
-                <a href="?action=deletePost&amp;id=<?= $post->id() ?>" class="btn btn-warning">Supprimer</a>
+                <a href="?action=deletePost&amp;id=<?= $post->id() ?>" class="btn btn-warning" onclick="return confirm('Voulez-vous vraiment supprimer ce commentaire ?');">Supprimer</a>
               </div>
             </div>
           </div>

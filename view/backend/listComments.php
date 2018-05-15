@@ -56,9 +56,7 @@ if (count($reportedComments) === 0 && count($nonReportedComments) === 0) {
                             <div class="card-footer">
                                   <div class="row justify-content-between">
                                     <button type="button" class="btn btn-danger" data-toggle="popover" data-trigger="focus" title="Motif" data-content="<?= $comment->reporting() ?>" data-placement="right">Signalé <?= $comment->reported() ?> fois</button>
-                                    <form action="index.php?action=deleteComment&amp;id=<?= $comment->id() ?>" method="post">
-                                    <button type="submit" class="btn btn-warning">Supprimer</button>
-                                    </form>
+                                    <a href="index.php?action=deleteComment&amp;id=<?= $comment->id() ?>" class="btn btn-warning" onclick="return confirm('Voulez-vous vraiment supprimer ce commentaire ?');">Supprimer</a>
                                   </div>
                             </div>
                           </div>
@@ -87,10 +85,8 @@ if (count($reportedComments) === 0 && count($nonReportedComments) === 0) {
                     <?= nl2br($comment->comment()) ?>
                   </p>
                 </div>
-                <div class="card-footer">
-                  <form action="index.php?action=deleteComment&amp;id=<?= $comment->id() ?>" method="post" class="text-right">
-                    <button type="submit" class="btn btn-warning">Supprimer</button>
-                  </form>
+                <div class="card-footer text-right">
+                    <a href="index.php?action=deleteComment&amp;id=<?= $comment->id() ?>" class="btn btn-warning" onclick="return confirm('Voulez-vous vraiment supprimer ce commentaire ?');">Supprimer</a>
                 </div>
               </div>
             <?php
