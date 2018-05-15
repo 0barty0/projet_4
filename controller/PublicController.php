@@ -99,9 +99,10 @@ class PublicController
         if (isset($_GET['id']) && isset($_GET['idPost'])) {
             $id = htmlspecialchars($_GET['id']);
             $postId = htmlspecialchars($_GET['idPost']);
+            $reporting = htmlspecialchars($_POST['reporting']);
             $commentManager = new CommentManager();
 
-            $affectedLines = $commentManager->reportComment($id);
+            $affectedLines = $commentManager->reportComment($id, $reporting);
 
             if ($affectedLines === false) {
                 throw new \Exception("Erreur lors de signalement de commentaire", 1);

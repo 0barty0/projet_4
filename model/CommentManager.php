@@ -19,6 +19,31 @@ class CommentManager extends Manager
         return $comments;
     }
 
+    public function getAllComments()
+    {
+        $db = $this->dbConnect();
+        $comments = [];
+
+        $req = $db->query('SELECT id, post_id, author, comment, comment_date, DATE_FORMAT(comment_date, "%d/%m/%Y à %Hh%imin%ss") AS comment_date_fr, reported, reporting FROM comments');
+
+        while ($data = $req->fetch(PDO::FETCH_ASSOC)) {
+            $comments[] = new Comment($data);
+        }
+
+        return $comments;
+    }
+
+    public function getComment($id)
+    {
+        $db = $this->dbConnect();
+
+        $req = $db->query('SELECT * FROM comments WHERE id='. $id);
+        $data = $req->fetch(PDO::FETCH_ASSOC);
+
+        $comment = new Comment($data);
+        return $comment;
+    }
+
     public function postComment($postId, $author, $comment)
     {
         $db = $this->dbConnect();
@@ -54,12 +79,21 @@ class CommentManager extends Manager
         return $affectedLines;
     }
 
-    public function reportComment($id)
+    public function reportComment($id, $reporting)
     {
+        $comment = $this->getComment($id);
+
+        $reported = $comment->reported()+1;
+
         $db = $this->dbConnect();
 
-        $affectedLines = $db->exec('UPDATE comments SET reported = true WHERE id=' .$id);
+        $req = $db->prepare('UPDATE comments SET reported = :reported, reporting=CONCAT_WS(CHAR(10 using utf8), :oldReporting, :newReporting) WHERE id=:id');
+        $req->bindValue(':reported', $reported);
+        $req->bindValue(':oldReporting', $comment->reporting());
+        $req->bindValue(':newReporting', $reporting);
+        $req->bindValue(':id', $id);
 
+        $affectedLines = $req->execute();
         return $affectedLines;
     }
 
@@ -68,7 +102,21 @@ class CommentManager extends Manager
         $db = $this->dbConnect();
         $comments = [];
 
-        $req = $db->query('SELECT id, post_id, author, comment, comment_date, DATE_FORMAT(comment_date, "%d/%m/%Y à %Hh%imin%ss") AS comment_date_fr FROM comments WHERE reported=1');
+        $req = $db->query('SELECT id, post_id, author, comment, comment_date, DATE_FORMAT(comment_date, "%d/%m/%Y à %Hh%imin%ss") AS comment_date_fr, reported, reporting FROM comments WHERE reported>0 ORDER BY reported');
+
+        while ($data = $req->fetch(PDO::FETCH_ASSOC)) {
+            $comments[] = new Comment($data);
+        }
+
+        return $comments;
+    }
+
+    public function getNonReportedComments()
+    {
+        $db = $this->dbConnect();
+        $comments = [];
+
+        $req = $db->query('SELECT id, post_id, author, comment, comment_date, DATE_FORMAT(comment_date, "%d/%m/%Y à %Hh%imin%ss") AS comment_date_fr FROM comments WHERE reported=0');
 
         while ($data = $req->fetch(PDO::FETCH_ASSOC)) {
             $comments[] = new Comment($data);

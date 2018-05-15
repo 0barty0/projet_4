@@ -1,4 +1,5 @@
 $(document).ready(function() {
+  // Navbar active item
   let action = location.search;
   if (action == "") {
     $('a[href="index.php"]').parent().addClass('active');
@@ -12,6 +13,7 @@ $(document).ready(function() {
     $('a[href="index.php?action=createPost"]').parent().addClass('active');
   }
 
+  // Hide message
   let message = $('#message');
 
   if (message.length !== 0) {
@@ -19,4 +21,13 @@ $(document).ready(function() {
       message.fadeOut(800);
     }, 3000);
   }
+
+  // Report comment
+  $('.report').on('click', function(){
+    let action="index.php?action=reportComment&id="+this.dataset.comment+"&idPost="+this.dataset.post;
+    $('#reportForm').attr("action", action);
+  });
+
+  // Popover
+  $('[data-toggle="popover"]').popover();
 });

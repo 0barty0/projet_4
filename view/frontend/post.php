@@ -39,10 +39,12 @@ $nbComments = count($comments);
 if ($nbComments === 0) {
     ?>
     <div class="row">
-      <div class="alert alert-success col-md-8 offset-md-2">
-        <p>
-          Aucun commentaire.
-        </p>
+      <div class="col-md-8 offset-md-2">
+        <div class="alert alert-success">
+          <p>
+            Aucun commentaire.
+          </p>
+        </div>
       </div>
     </div>
     <?php
@@ -71,10 +73,8 @@ if ($nbComments === 0) {
                   <div class="card-body">
                     <p><?= nl2br($comment->comment()) ?></p>
                   </div>
-                  <div class="card-footer">
-                    <form action="index.php?action=reportComment&amp;id=<?= $comment->id() ?>&amp;idPost=<?= $post->id() ?>" method="post" class="text-right">
-                      <button type="submit" class="btn btn-warning">Signaler</button>
-                    </form>
+                  <div class="card-footer text-right">
+                      <button type="button" class="btn btn-warning report" data-toggle="modal" data-target="#reportComment" data-post="<?= $post->id() ?>" data-comment="<?= $comment->id()?>">Signaler</button>
                   </div>
                 </div>
               <?php
@@ -112,6 +112,37 @@ if ($nbComments === 0) {
           </div>
         </form>
       </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="reportComment" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header bg-warning">
+        <h5 class="modal-title">Signaler un commentaire</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form action="" method="post" id="reportForm">
+      <div class="modal-body">
+        <div class="form-group">
+          <label for="reporting">Motif du signalement :</label>
+          <select class="form-control" name="reporting">
+            <option value="Message sans rapport avec le contenu">Message sans rapport avec le contenu</option>
+            <option value="Non respect du droit d'auteur">Non respect du droit d'auteur</option>
+            <option value="Incitation à la haine raciale">Incitation à la haine raciale</option>
+            <option value="Propos à caractère homophobe ou sexiste">Propos à caractère homophobe ou sexiste</option>
+            <option value="Diffamation ou injure">Diffamation ou injure</option>
+          </select>
+        </div>
+      </div>
+      <div class="modal-footer text-right">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+        <button type="submit" class="btn btn-warning">Signaler</button>
+      </div>
+      </form>
     </div>
   </div>
 </div>
