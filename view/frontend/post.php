@@ -74,7 +74,7 @@ if ($nbComments === 0) {
                     <p><?= nl2br($comment->comment()) ?></p>
                   </div>
                   <div class="card-footer text-right">
-                      <button type="button" class="btn btn-warning report" data-toggle="modal" data-target="#reportComment" data-post="<?= $post->id() ?>" data-comment="<?= $comment->id()?>">Signaler</button>
+                      <button type="button" class="btn btn-warning report" data-toggle="modal" data-target="#reportComment" data-comment="<?= $comment->id()?>">Signaler</button>
                   </div>
                 </div>
               <?php
@@ -136,6 +136,7 @@ if ($nbComments === 0) {
             <option value="Propos à caractère homophobe ou sexiste">Propos à caractère homophobe ou sexiste</option>
             <option value="Diffamation ou injure">Diffamation ou injure</option>
           </select>
+          <input type="hidden" name="postId" value="<?= $post->id() ?>">
         </div>
       </div>
       <div class="modal-footer text-right">

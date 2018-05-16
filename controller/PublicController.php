@@ -84,7 +84,7 @@ class PublicController
                     throw new \Exception("Erreur lors de l'ajout de commentaire.", 1);
                 } else {
                     $_SESSION['message'] = "Votre commentaire a été posté.";
-                    header('location:index.php?action=post&id='. $postId);
+                    header('location:post/'. $postId);
                 }
             } else {
                 throw new \Exception("Tous les champs ne sont pas remplis", 1);
@@ -96,9 +96,9 @@ class PublicController
 
     public function reportComment()
     {
-        if (isset($_GET['id']) && isset($_GET['idPost'])) {
+        if (isset($_GET['id'])) {
             $id = htmlspecialchars($_GET['id']);
-            $postId = htmlspecialchars($_GET['idPost']);
+            $postId = htmlspecialchars($_POST['postId']);
             $reporting = htmlspecialchars($_POST['reporting']);
             $commentManager = new CommentManager();
 
@@ -108,10 +108,10 @@ class PublicController
                 throw new \Exception("Erreur lors de signalement de commentaire", 1);
             } else {
                 $_SESSION['message'] = "Commentaire signalé.";
-                header('location:index.php?action=post&id='. $postId);
+                header('location:post/'. $postId);
             }
         } else {
-            throw new \Exception("Aucun identifiant de commentaire ou de billet envoyé", 1);
+            throw new \Exception("Aucun identifiant de commentaire envoyé", 1);
         }
     }
 }

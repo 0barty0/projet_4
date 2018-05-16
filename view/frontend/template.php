@@ -9,8 +9,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.12/css/all.css" integrity="sha384-G0fIWCsCzJIMAVNQPfjH08cyYaUtMwjJwqiRKxxE/rx96Uroj1BtIQ6MLJuheaO9" crossorigin="anonymous">
-    <link rel="stylesheet" href="public/css/style.css">
     <link href="https://fonts.googleapis.com/css?family=Lato|Limelight" rel="stylesheet">
+    <BASE href="http://localhost/Public/projet_4/">
+    <link rel="stylesheet" href="public/css/style.css">
     <title><?= $title ?></title>
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -33,7 +34,7 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item"><a href="index.php" class="nav-link">Accueil</a></li>
-      <li class="nav-item"><a href="index.php?action=listPosts" class="nav-link">Liste des chapîtres</a></li>
+      <li class="nav-item"><a href="listPosts/" class="nav-link">Liste des chapîtres</a></li>
     </ul>
   </div>
 </nav>
@@ -52,7 +53,7 @@
         </div>
     </div>
     <div class="col-sm-4">
-      <h4><a href="index.php?action=login">Connexion</a></h4>
+      <h4><a href="login/">Connexion</a></h4>
     </div>
   </div>
   <div class="row">
