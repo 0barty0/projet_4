@@ -187,13 +187,13 @@ class AdminController
     public function reply()
     {
         if (isset($_GET['id']) && isset($_GET['idPost'])) {
-            $idParent = $_GET['id'];
+            $id = $_GET['id'];
             $postId = $_GET['idPost'];
             $author = $_SESSION['pseudo'];
-            $comment = htmlspecialchars($_POST['comment']);
+            $reply = htmlspecialchars($_POST['reply']);
 
             $commentManager = new CommentManager();
-            $affectedLines = $commentManager->reply($idParent, $postId, $author, $comment);
+            $affectedLines = $commentManager->reply($id, $author, $reply);
 
             if ($affectedLines !== 0) {
                 $_SESSION['message'] = "Réponse publiée";

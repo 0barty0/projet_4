@@ -76,6 +76,20 @@ if ($nbComments === 0) {
                   <div class="card-footer text-right">
                       <button type="button" class="btn btn-warning report" data-toggle="modal" data-target="#reportComment" data-comment="<?= $comment->id()?>">Signaler</button>
                   </div>
+                  <?php
+                if ($comment->reply_author() !== null) {
+                    ?>
+                      <div class="card comment reply">
+                        <div class="card-header text-white bg-info">
+                          <h3>Réponse de <?= $comment->reply_author() ?></h3>
+                          <p><?= $comment->reply_date_fr() ?></p>
+                        </div>
+                        <div class="card-body">
+                          <p><?= nl2br($comment->reply()) ?></p>
+                        </div>
+                      </div>
+                      <?php
+                } ?>
                 </div>
               <?php
             } ?>

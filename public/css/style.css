@@ -112,6 +112,9 @@ h1#main_title {
 .comment .card-header p {
   width: auto;
 }
+.reply {
+  margin-left: 20px;
+}
 /****** Media queries *****/
 @media (max-width: 575px) {
   html {

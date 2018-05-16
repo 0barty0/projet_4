@@ -60,6 +60,20 @@ if (count($reportedComments) === 0 && count($nonReportedComments) === 0) {
                                     <a href="index.php?action=deleteComment&amp;id=<?= $comment->id() ?>" class="btn btn-warning" onclick="return confirm('Voulez-vous vraiment supprimer ce commentaire ?');">Supprimer</a>
                                   </div>
                             </div>
+                            <?php
+                          if ($comment->reply_author() !== null) {
+                              ?>
+                                <div class="card comment reply">
+                                  <div class="card-header text-white bg-info">
+                                    <h3>Réponse de <?= $comment->reply_author() ?></h3>
+                                    <p><?= $comment->reply_date_fr() ?></p>
+                                  </div>
+                                  <div class="card-body">
+                                    <p><?= nl2br($comment->reply()) ?></p>
+                                  </div>
+                                </div>
+                                <?php
+                          } ?>
                           </div>
                           <?php
                           } ?>
@@ -90,6 +104,20 @@ if (count($reportedComments) === 0 && count($nonReportedComments) === 0) {
                     <button type="button" class="btn btn-primary reply" data-toggle="modal" data-target="#replyComment" data-comment="<?= $comment->id()?>" data-post="<?= $comment->post_id() ?>">Répondre</button>
                     <a href="index.php?action=deleteComment&amp;id=<?= $comment->id() ?>" class="btn btn-warning" onclick="return confirm('Voulez-vous vraiment supprimer ce commentaire ?');">Supprimer</a>
                 </div>
+                <?php
+              if ($comment->reply_author() !== null) {
+                  ?>
+                    <div class="card comment reply">
+                      <div class="card-header text-white bg-info">
+                        <h3>Réponse de <?= $comment->reply_author() ?></h3>
+                        <p><?= $comment->reply_date_fr() ?></p>
+                      </div>
+                      <div class="card-body">
+                        <p><?= nl2br($comment->reply()) ?></p>
+                      </div>
+                    </div>
+                    <?php
+              } ?>
               </div>
             <?php
             } ?>
@@ -108,9 +136,9 @@ if (count($reportedComments) === 0 && count($nonReportedComments) === 0) {
               <form action="" method="post" id="replyForm">
               <div class="modal-body">
                 <div class="form-group row">
-                  <label for="comment" class="col-form-label col-md-3">Votre réponse :</label>
+                  <label for="reply" class="col-form-label col-md-3">Votre réponse :</label>
                     <div class="col-md-9">
-                      <textarea class="form-control" name="comment" id="comment" cols="30" rows="5" required></textarea>
+                      <textarea class="form-control" name="reply" id="reply" cols="30" rows="5" required></textarea>
                     </div>
                 </div>
               </div>
