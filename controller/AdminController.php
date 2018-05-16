@@ -8,6 +8,11 @@ class AdminController
 {
     public function showHome()
     {
+        $postManager = new PostManager();
+        $commentManager = new CommentManager();
+        $posts = $postManager->getPosts();
+        $reportedComments = $commentManager->getReportedComments();
+
         require(__DIR__ .'/../view/backend/admin.php');
     }
 
