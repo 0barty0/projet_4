@@ -27,6 +27,12 @@ $(document).ready(function() {
     $('#reportForm').attr("action", action);
   });
 
+  // Reply to comment
+  $('.reply').on('click', function(){
+    let action="index.php?action=reply&id="+this.dataset.comment+"&idPost="+this.dataset.post;
+    $('#replyForm').attr("action", action);
+  });
+
   // Popover
   $('[data-toggle="popover"]').popover();
 });

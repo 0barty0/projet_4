@@ -4,6 +4,7 @@ class Comment
 {
     private $_id;
     private $_post_id;
+    private $_parent_comment_id;
     private $_author;
     private $_comment;
     private $_comment_date;
@@ -36,6 +37,10 @@ class Comment
     public function post_id()
     {
         return $this->_post_id;
+    }
+    public function parent_comment_id()
+    {
+        return $this->_parent_comment_id;
     }
     public function author()
     {
@@ -76,6 +81,11 @@ class Comment
     public function setPost_id($post_id)
     {
         $this->_post_id = $post_id;
+    }
+
+    public function setParent_comment_id($parent_comment_id)
+    {
+        $this->_parent_comment_id = $parent_comment_id;
     }
 
     public function setAuthor($author)

@@ -37,6 +37,9 @@ try {
               case 'deleteComment':
                 $adminController->deleteComment();
                 break;
+              case 'reply':
+                $adminController->reply();
+                break;
               default:
                 $adminController->showHome();
                 break;

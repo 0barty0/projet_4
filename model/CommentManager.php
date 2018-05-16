@@ -124,4 +124,14 @@ class CommentManager extends Manager
 
         return $comments;
     }
+
+    public function reply($idParent, $postId, $author, $comment)
+    {
+        $db = $this->dbConnect();
+
+        $req = $db->prepare('INSERT INTO comments(post_id, parent_comment_id, author, comment, comment_date) VALUES (?, ?, ?, ?, NOW())');
+        $affectedLines = $req->execute(array($postId, $idParent, $author, $comment));
+
+        return $affectedLines;
+    }
 }

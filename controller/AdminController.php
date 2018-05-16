@@ -183,4 +183,27 @@ class AdminController
             throw new \Exception("Aucun identifiant de commentaire envoyé", 1);
         }
     }
+
+    public function reply()
+    {
+        if (isset($_GET['id']) && isset($_GET['idPost'])) {
+            $idParent = $_GET['id'];
+            $postId = $_GET['idPost'];
+            $author = $_SESSION['pseudo'];
+            $comment = htmlspecialchars($_POST['comment']);
+
+            $commentManager = new CommentManager();
+            $affectedLines = $commentManager->reply($idParent, $postId, $author, $comment);
+
+            if ($affectedLines !== 0) {
+                $_SESSION['message'] = "Réponse publiée";
+
+                header('location:index.php?action=listComments');
+            } else {
+                throw new \Exception("La réponse n'a pas pu être postée", 1);
+            }
+        } else {
+            throw new \Exception("Aucun identifiant de commentaire ou d'article", 1);
+        }
+    }
 }
