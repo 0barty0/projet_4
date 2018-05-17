@@ -9,7 +9,7 @@ class CommentManager extends Manager
         $db = $this->dbConnect();
         $comments = [];
 
-        $req = $db->prepare('SELECT id, post_id, author, comment, comment_date, DATE_FORMAT(comment_date, "%d/%m/%Y à %Hh%imin%ss") AS comment_date_fr FROM comments WHERE post_id=?');
+        $req = $db->prepare('SELECT id, post_id, author, comment, comment_date, DATE_FORMAT(comment_date, "%d/%m/%Y à %Hh%imin%ss") AS comment_date_fr, reply_author, reply, DATE_FORMAT(reply_date, "%d/%m/%Y à %Hh%imin%ss") AS reply_date_fr FROM comments WHERE post_id=?');
         $req->execute(array($idPost));
 
         while ($data = $req->fetch(PDO::FETCH_ASSOC)) {
@@ -24,7 +24,7 @@ class CommentManager extends Manager
         $db = $this->dbConnect();
         $comments = [];
 
-        $req = $db->query('SELECT id, post_id, author, comment, comment_date, DATE_FORMAT(comment_date, "%d/%m/%Y à %Hh%imin%ss") AS comment_date_fr, reported, reporting FROM comments');
+        $req = $db->query('SELECT id, post_id, author, comment, comment_date, DATE_FORMAT(comment_date, "%d/%m/%Y à %Hh%imin%ss") AS comment_date_fr, reported, reporting, reply_author, reply, DATE_FORMAT(reply_date, "%d/%m/%Y à %Hh%imin%ss") AS reply_date_fr FROM comments');
 
         while ($data = $req->fetch(PDO::FETCH_ASSOC)) {
             $comments[] = new Comment($data);
@@ -102,7 +102,7 @@ class CommentManager extends Manager
         $db = $this->dbConnect();
         $comments = [];
 
-        $req = $db->query('SELECT id, post_id, author, comment, comment_date, DATE_FORMAT(comment_date, "%d/%m/%Y à %Hh%imin%ss") AS comment_date_fr, reported, reporting FROM comments WHERE reported>0 ORDER BY reported DESC');
+        $req = $db->query('SELECT id, post_id, author, comment, comment_date, DATE_FORMAT(comment_date, "%d/%m/%Y à %Hh%imin%ss") AS comment_date_fr, reported, reporting, reply_author, reply, DATE_FORMAT(reply_date, "%d/%m/%Y à %Hh%imin%ss") AS reply_date_fr FROM comments WHERE reported>0 ORDER BY reported DESC');
 
         while ($data = $req->fetch(PDO::FETCH_ASSOC)) {
             $comments[] = new Comment($data);
@@ -116,12 +116,25 @@ class CommentManager extends Manager
         $db = $this->dbConnect();
         $comments = [];
 
-        $req = $db->query('SELECT id, post_id, author, comment, comment_date, DATE_FORMAT(comment_date, "%d/%m/%Y à %Hh%imin%ss") AS comment_date_fr FROM comments WHERE reported=0 ORDER BY id DESC');
+        $req = $db->query('SELECT id, post_id, author, comment, comment_date, DATE_FORMAT(comment_date, "%d/%m/%Y à %Hh%imin%ss") AS comment_date_fr, reply_author, reply, DATE_FORMAT(reply_date, "%d/%m/%Y à %Hh%imin%ss") AS reply_date_fr FROM comments WHERE reported=0 ORDER BY id DESC');
 
         while ($data = $req->fetch(PDO::FETCH_ASSOC)) {
             $comments[] = new Comment($data);
         }
 
         return $comments;
+    }
+
+    public function reply($id, $author, $reply)
+    {
+        $db = $this->dbConnect();
+
+        $req = $db->prepare('UPDATE comments SET reply_author = :author, reply=:reply, reply_date=NOW() WHERE id=:id ');
+        $req->bindValue(':author', $author);
+        $req->bindValue(':reply', $reply);
+        $req->bindValue(':id', $id);
+        $affectedLines = $req->execute();
+
+        return $affectedLines;
     }
 }

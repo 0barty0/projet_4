@@ -10,6 +10,9 @@ class Comment
     private $_comment_date_fr;
     private $_reported;
     private $_reporting;
+    private $_reply_author;
+    private $_reply;
+    private $reply_date_fr;
 
     public function __construct(array $data)
     {
@@ -64,6 +67,20 @@ class Comment
         return $this->_reporting;
     }
 
+    public function reply_author()
+    {
+        return $this->_reply_author;
+    }
+
+    public function reply()
+    {
+        return $this->_reply;
+    }
+
+    public function reply_date_fr()
+    {
+        return $this->_reply_date_fr;
+    }
     // Setters
 
     public function setId($id)
@@ -107,5 +124,20 @@ class Comment
     public function setReporting($reporting)
     {
         $this->_reporting = $reporting;
+    }
+
+    public function setReply_author($author)
+    {
+        $this->_reply_author = $author;
+    }
+
+    public function setReply($reply)
+    {
+        $this->_reply = $reply;
+    }
+
+    public function setReply_date_fr($reply_date_fr)
+    {
+        $this->_reply_date_fr = $reply_date_fr;
     }
 }
