@@ -31,6 +31,7 @@ ob_start();
             <textarea name="content" id="content"><?= $articleContent ?></textarea>
           </div>
           <div class="text-right">
+            <a href="listPosts/" class="btn btn-danger">Annuler</a>
             <button type="submit" class="btn btn-primary">Modifier</button>
           </div>
         </form>
